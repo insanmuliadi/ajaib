@@ -4,6 +4,10 @@ title: 'Ajaib'
 theme: "PaperMod"
 
 params:
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "favicon.svg"
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
