@@ -27,7 +27,7 @@ image:
   alt: "Ilustrasi Connection Timeout di jaringan XL"
 ---
 
-<img alt="Ilustrasi Connection Timeout di jaringan XL" height="576" src="/images/rto-xl.webp" width="1024">
+<img alt="Ilustrasi Connection Timeout di jaringan XL" fetchpriority="high" height="576" src="/images/rto-xl.webp" width="1024">
 
 Jika kalian memiliki blog atau website maka sebaiknya kalian memerikasa apakah web kalian bisa diakses saat menggunakan provider XL atau tidak.
 
