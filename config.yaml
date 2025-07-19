@@ -19,3 +19,7 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+
+  analytics:
+    google:
+      SiteVerificationTag: "-xd7gN5QFM3JprS3v3840rU-NvkdH6fRbcmj0CfAf6w"
