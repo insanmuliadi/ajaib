@@ -6,9 +6,6 @@ draft: false
 
 <img alt="Liu Mei" height="405" src="/images/liu-mei.webp" width="720">
 
-<img alt="Liu Mei" height="405" src="/cdn-cgi/image/width=400/images/liu-mei.webp" width="720">
-
-
 Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.
 
 Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id maupun semua turunan bisnisnya.

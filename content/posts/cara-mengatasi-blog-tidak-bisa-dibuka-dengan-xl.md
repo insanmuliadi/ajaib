@@ -22,7 +22,12 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
+image: 
+  src: "/images/ancient-god-wang-lin.webp"
+  alt: "Image alt"
 ---
+
+![iamage](/images/ancient-god-wang-lin.webp)
 
 Jika kalian memiliki blog atau website maka sebaiknya kalian memerikasa apakah web kalian bisa diakses saat menggunakan provider XL atau tidak.
 

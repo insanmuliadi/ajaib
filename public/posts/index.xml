@@ -20,8 +20,8 @@
       <link>http://localhost:1313/posts/hello-welcome/</link>
       <pubDate>Fri, 18 Jul 2025 20:00:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/hello-welcome/</guid>
-      <description>&lt;!--&lt;img alt=&#34;Liu Mei&#34; height=&#34;576&#34; src=&#34;http://localhost:1313/images/liu-mei.webp&#34; width=&#34;1024&#34;&gt;--&gt;
-&lt;p&gt;&lt;img alt=&#34;Liu Mei&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/liu-mei.webp&#34;&gt;&lt;/p&gt;
+      <description>&lt;img alt=&#34;Liu Mei&#34; height=&#34;405&#34; src=&#34;http://localhost:1313/images/liu-mei.webp&#34; width=&#34;720&#34;&gt;
+&lt;img alt=&#34;Liu Mei&#34; height=&#34;405&#34; src=&#34;http://localhost:1313/cdn-cgi/image/width=400/images/liu-mei.webp&#34; width=&#34;720&#34;&gt;
 &lt;p&gt;Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.&lt;/p&gt;
 &lt;p&gt;Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id maupun semua turunan bisnisnya.&lt;/p&gt;</description>
     </item>
