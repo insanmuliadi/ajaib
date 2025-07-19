@@ -1,7 +1,7 @@
-+++
-date = '2025-07-19T15:10:23+08:00'
-draft = false
-title = 'Cara Mengatasi Blog Tidak Bisa Dibuka Dengan Xl'
+---
+date: '2025-07-19T15:10:23+08:00'
+draft: false
+title: 'Cara Mengatasi Blog Tidak Bisa Dibuka Dengan Xl'
 author: 'Ajaib'
 # author: ["Me", "You"] # multiple authors
 showToc: true
@@ -22,7 +22,7 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
-+++
+---
 
 Jika kalian memiliki blog atau website maka sebaiknya kalian memerikasa apakah web kalian bisa diakses saat menggunakan provider XL atau tidak.
 
