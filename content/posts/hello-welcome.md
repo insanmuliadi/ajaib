@@ -4,7 +4,9 @@ date: 2025-07-18T20:00:00+08:00
 draft: false
 ---
 
-<img alt="Liu Mei" height="576" src="/images/liu-mei.webp" width="1024">
+<!--<img alt="Liu Mei" height="576" src="/images/liu-mei.webp" width="1024">-->
+
+![Liu Mei](/images/liu-mei.webp)
 
 Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.
 
