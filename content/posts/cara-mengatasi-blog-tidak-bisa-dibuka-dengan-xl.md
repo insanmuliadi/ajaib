@@ -24,11 +24,11 @@ Jika tidak maka kalian sebaiknya segera menrapkan solusi untuk masalah ini.
 
 Lalu kira-kira apa penyebabnya, apakah hanya gangguan biasa, masalah dari provider ataukah masalah dari web atau blog kalian? Berikut beberapa yang mungkin jadi penyebabnya:
 
-* 1. Platform Website  
+1. Platform Website  
 Sejauh ini masalah web yang tidak bisa diakses di jaringan XL adalah website yang menggunakan layanan dari blogger.com
-* 2. Penyedia Domain  
+2. Penyedia Domain  
 Maslah ini sendiri hanya menimpa web yang menggunakan Top Level Domain (TLD). Dan yang paling unik adalah semua domain yang dibeli dari **webhost.com. Saat menggunakan penyedia domain lain, blog dari blogger.com bisa berjalan normal.
-* 3. Masalah dari Sistem XL  
+3. Masalah dari Sistem XL  
 Sumber masalah utama pastinya dari XL, namun tidak terlepas dari 2 poin di atas. Jika kalian perhatikan, web yang tidak bisa dikases normal akan memberikan report "Connection Timeout". Kemungkinan masalahnya dari DNS XL.
 
 ## Solusi
@@ -45,9 +45,9 @@ Saat ini tidak ada solusi absolut untuk masalah ini. Yang bisa kalian lakukan ha
 
 Hanya saja, meskipun sementara namun bisa berlangsung selama beberapa hari dan bisa berulang kapan saja. Namun jika kalian ingin mencoba cara yang mungkin bisa berhasil maka ikuti langkah berikut:
 
-* 1. Migrasi pengelolaan DNS ke Cloudflare  
+1. Migrasi pengelolaan DNS ke Cloudflare  
 Kalian bisa menggunakan DNS managemen di Cloudflare. Caranya cukup ubah Name Server ke NS milik Cloudflare. Setelah itu cukup lakukan perubahan record di Cloudflare.
-* 2. Jangan gunakan Blogger  
+2. Jangan gunakan Blogger  
 Jika cara pertama masih gagal, kalian bisa mempertimbangkan untuk menggunakan platform blogging lainnya.
 
 Semoga bermanfaat!
