@@ -35,4 +35,4 @@ markup:
 
 pagination:
   disableAliases: false
-  pagerSize: 1
+  pagerSize: 10
