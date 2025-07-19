@@ -23,11 +23,11 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 image: 
-  src: "/images/ancient-god-wang-lin.webp"
-  alt: "Image alt"
+  src: "/images/rto-xl.webp"
+  alt: "Ilustrasi Connection Timeout di jaringan XL"
 ---
 
-![iamage](/images/ancient-god-wang-lin.webp)
+<img alt="Ilustrasi Connection Timeout di jaringan XL" height="576" src="/images/rto-xl.webp" width="1024">
 
 Jika kalian memiliki blog atau website maka sebaiknya kalian memerikasa apakah web kalian bisa diakses saat menggunakan provider XL atau tidak.
 
