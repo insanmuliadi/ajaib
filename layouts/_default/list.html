@@ -83,10 +83,10 @@
   <div class="entry-content">
 
     {{ with .Params.image }}
-    {{ $img := resources.Get .src }}
-    {{ with $img }}
-    {{ $thumb := .Fill "100x100 center" }}
-    <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Params.image.alt }}">
+    {{ $img := . }}
+    {{ with resources.Get $img.src }}
+      {{ $thumb := .Fill "100x100 center" }}
+      <img src="{{ $thumb.RelPermalink }}" alt="{{ $img.alt }}">
     {{ end }}
     {{ end }}
 
