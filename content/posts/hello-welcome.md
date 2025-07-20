@@ -12,4 +12,3 @@ image:
 Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.
 
 Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id maupun semua turunan bisnisnya.
-
