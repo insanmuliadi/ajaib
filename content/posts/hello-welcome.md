@@ -2,6 +2,9 @@
 title: "Halo PaperMod"
 date: 2025-07-18T20:00:00+08:00
 draft: false
+image: 
+  src: "/images/liu-mei.webp"
+  alt: "Liu Mei Stoopp!"
 ---
 
 <img alt="Liu Mei" height="405" src="/images/liu-mei.webp" width="720">
