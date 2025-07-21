@@ -2,6 +2,7 @@
 date: '2025-07-20T13:24:07+08:00'
 draft: false
 title: 'Seberapa Besar Kuota Internet Perbulan'
+description: 'Seberapa besar kuota internet yang dibutuhkan untuk berbagai jenis aktifitas online dalam sebulan? Temukan jawabannya di sini.'
 image:
   src: "/images/kebutuhan-kuota-internet.webp"
   alt: "kebutuhan kuota internet"
