@@ -62,9 +62,9 @@ Lalu bagaimana cara mengatasi web yang tidak bisa dibuka dengan XL ini?
 
 Apakah dengan mengubah DNS browser? Mengubah DNS atau bahkan menggunakan proxy atau VPN? Menggunakan cara ini tentu bisa membuat web kalian diakses secara normal di XL, namun ini sama sekali bukan solusi.
 
-Pasalnya ini adalah aksi klien, dan tidak mungkin pengunjung web klien sebagai klien mengubah DNS atau menggunakan VPN untuk membuka web kalian.
+Pasalnya ini adalah aksi klien, dan tidak mungkin pengunjung web kalian sebagai klien mengubah DNS atau menggunakan VPN hanya untuk membuka web kalian.
 
-Alih-alih melakukan pengaturan mereka pasti lebih memilih untuk membuka web lain.
+Ya, jika konten kalian sangat mereka butuhkan. Jika tidak, alih-alih melakukan pengaturan mereka pasti lebih memilih untuk membuka web lain.
 
 Saat ini tidak ada solusi absolut untuk masalah ini. Yang bisa kalian lakukan hanya menunggu karena masalah ini adalah gangguan sementara.
 
