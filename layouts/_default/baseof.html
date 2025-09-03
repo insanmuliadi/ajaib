@@ -22,6 +22,14 @@
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    {{ if eq .Kind "home" }}        Home
+{{ else if eq .Kind "section" }} Section
+{{ else if eq .Kind "taxonomy" }} Taxonomy list
+{{ else if eq .Kind "term" }}    Taxonomy term
+{{ else if eq .Kind "page" }}    Single page
+{{ else if eq .Kind "404" }}     Halaman 404
+{{ end }}
+
 </body>
 
 </html>

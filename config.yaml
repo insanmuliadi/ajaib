@@ -40,11 +40,11 @@ params:
 menu:
   main:
     - identifier: categories
-      name: categories
+      name: Kategori
       url: /categories/
       weight: 10
     - identifier: tags
-      name: tags
+      name: Label
       url: /tags/
       weight: 20
 

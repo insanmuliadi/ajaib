@@ -81,7 +81,7 @@
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
   <div class="entry-content">
-
+ 
     {{ with .Params.image }}
     {{ $img := . }}
     {{ with resources.Get $img.src }}
