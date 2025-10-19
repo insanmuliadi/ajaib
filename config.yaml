@@ -1,7 +1,7 @@
 baseURL: 'https://ajaib.my.id/'
 languageCode: 'en-us'
 title: 'Ajaib'
-theme: "hextra"
+theme: "PaperMod"
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
