@@ -16,7 +16,8 @@
 {{ end }}
 
 <section class="entry-body">
-  {{ .Content }}
+  {{ replace .Content "<!--advert-->" (partial "addtest.html" .) | safeHTML }}
+
   {{partial "bio.html" .}}
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 </section>

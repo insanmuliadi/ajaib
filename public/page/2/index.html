@@ -19,7 +19,6 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 
-      <script src="/js/main.js"></script>
 <meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="Ajaib">
   <meta property="og:title" content="Ajaib">
@@ -176,7 +175,7 @@
   .related-wrap li a { display: flex;align-items: flex-start;}
   .related-wrap li a img{margin-right:10px;flex: 0 0 120px;}
   .related-title{font-weight:700;margin-bottom:5px;font-size:18px}
-  .related-summary{color:#666666}
+  .related-summary{color:#666666;line-height:1.2;}
   .toc{background:#fff;border-radius:2px;padding:15px;margin-bottom:22px;border:1px solid #bbb;box-shadow:2px 3px 0 rgb(0 0 0 / 6%)}nav.toc h2{font-size:16px;margin-bottom:10px}.toc ul{list-style:;padding-left:0}.toc li{margin-left:20px}.toc li a{color:#B30000}
   .nex-prev-nav{display:flex;align-items:center;margin:20px 0}.np-link{flex:0 0 49%;padding:2px 10px;border:1px solid #ddd;border-radius:2px;font-size:14px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;box-shadow:2px 3px 0 rgb(0 0 0 / 6%)}.next-link{margin-left:auto;text-align: right;}
   .pagination{display:flex;align-items:center;margin:30px 0}.pag-btn{padding:2px 10px;min-width:26px;text-align:center;border:1px solid #ddd;border-radius:2px;font-size:14px;color:#000}.pag-btn:not(:last-child){margin-right:4px}.pag-btn.current-page-btn{background:#ddd}
@@ -353,6 +352,7 @@ window.onclick = function(event) {
 		} else {}
 	}
 };
+window.topFunction = function(name){document.body.scrollTop=0;document.documentElement.scrollTop=0}
 </script>
 </body>
 </html>

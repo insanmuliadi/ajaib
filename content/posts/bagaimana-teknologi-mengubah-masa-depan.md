@@ -15,6 +15,8 @@ Dunia yang kita tinggali sedang berubah dengan kecepatan yang belum pernah terja
 ## 1. Dunia Kerja yang Lebih Cerdas dan Otomatis
 Kecerdasan Buatan (AI) dan robotika tidak lagi menjadi bagian dari fiksi ilmiah. Di masa depan, tugas-tugas repetitif dan berbahaya akan semakin banyak ditangani oleh mesin. Namun, ini bukan berarti hilangnya lapangan kerja, melainkan transformasinya. Peran manusia akan bergeser ke bidang yang membutuhkan kreativitas, empati, strategi, dan pengelolaan teknologi itu sendiri. Keterampilan baru seperti data analysis dan pemrograman akan menjadi sangat berharga.
 
+<!--advert-->
+
 ## 2. Revolusi dalam Layanan Kesehatan
 Teknologi sedang menyelamatkan nyawa dengan cara yang lebih personal dan proaktif. Dengan bantuan AI, diagnosis penyakit dapat dilakukan lebih cepat dan akurat. Telemedicine memungkinkan konsultasi dokter dari jarak jauh, menjangkau mereka yang tinggal di daerah terpencil. Bahkan, pengeditan gen (seperti CRISPR) dan pencetakan organ 3D berpotensi menyembuhkan penyakit yang sebelumnya dianggap tidak bisa diobati, membawa kita ke era pengobatan yang sangat presisi.
 
