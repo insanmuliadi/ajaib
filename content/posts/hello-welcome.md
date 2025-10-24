@@ -9,6 +9,7 @@ tags:
 - blog
 - tutor
 categories: ["Tutorial", "Hugo"]
+slug: welcome-to-ajaib
 toc: false
 author: Insan Muliadi
 ---
