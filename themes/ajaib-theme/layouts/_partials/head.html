@@ -58,6 +58,7 @@
     }
     </script>
 {{ end }}
+{{ $authorName := partial "author.html" . | plainify }}
 <script type='application/ld+json'>
     {
       "@context": "http://schema.org",
@@ -104,9 +105,9 @@
       },
       "author": {
       "@type":"Person",
-    "name":"{{ $authorName := partial "author.html" . | plainify }}{{ $authorName }}",
+    "name":"{{ $authorName }}",
     "description":"Penulis di GoInsan.com yang fokus menulis tentang bisnis dan beberapa hal menarik lainnya.",
-    "url":"https://www.goinsan.com/p/insan-muliadi.html"
+    "url":"/authors/{{- $authorName -}}"
       }
     }
     </script>
