@@ -121,7 +121,7 @@
       "author":{
         "@type": "Person",
         "name": "{{ $authorName }}",
-        "url": "url"
+        "url": "/authors/{{ $authorName | urlize }}"
       }
       {{ end }}
     }
