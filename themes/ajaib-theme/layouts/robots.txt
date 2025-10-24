@@ -2,4 +2,4 @@ User-agent: Mediapartners-Google
 Disallow:
 User-agent: *
 Allow: /
-Sitemap: https://ajaib.my.id/sitemap.xml
+Sitemap: https://ajaib.my.id/sitemap2.xml
