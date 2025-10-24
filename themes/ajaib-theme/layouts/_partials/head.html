@@ -105,17 +105,16 @@
         }
       },
       {{- with .Params.authors }}
-"author": [
-  {{- range $index, $a := . -}}
-  {{- if $index}},{{ end }}
-  {
-    "@type": "Person",
-    "name": {{ $a | jsonify }},
-    "url": "/authors/{{ $a | urlize }}"
-  }
-  {{- end }}
-],
-{{- end }}
+      "author": [
+      {{- range $index, $a := . -}}
+      {{- if $index}},{{ end }}
+      {
+        "@type": "Person",
+        "name": {{ $a | jsonify }},
+        "url": "/authors/{{ $a | urlize }}"
     }
+    {{- end }}
+    ],
+{{- end }}
     </script>
     {{ partialCached "head/css.html" . }}
