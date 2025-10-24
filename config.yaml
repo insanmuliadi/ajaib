@@ -81,7 +81,7 @@ sitemap:
   priority: -1
 
 outputs:
-  home: ["HTML", "RSS", "JSON", "TXT"]
+  home: ["HTML", "RSS", "JSON"]
 
 enableRobotsTXT: false
 
