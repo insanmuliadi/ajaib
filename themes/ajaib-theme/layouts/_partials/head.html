@@ -59,6 +59,7 @@
     </script>
 {{ end }}
 {{ $authorName := partial "author.html" . | plainify }}
+
 <script type='application/ld+json'>
     {
       "@context": "http://schema.org",
@@ -103,12 +104,18 @@
           "height": 128
         }
       },
-      "author": {
-      "@type":"Person",
-    "name":"{{- $authorName -}}",
-    "description":"Penulis di Ajaib yang fokus menulis tentang bisnis dan beberapa hal menarik lainnya.",
-    "url":"/authors/{{- $authorName | strings.TrimSpace | lower }}"
-      }
+      {{- with .Params.authors }}
+"author": [
+  {{- range $index, $a := . -}}
+  {{- if $index}},{{ end }}
+  {
+    "@type": "Person",
+    "name": {{ $a | jsonify }},
+    "url": "/authors/{{ $a | urlize }}"
+  }
+  {{- end }}
+],
+{{- end }}
     }
     </script>
     {{ partialCached "head/css.html" . }}

@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 18 Jul 2025 20:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/tutor/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Halo PaperMod</title>
-      <link>http://localhost:1313/halo-papermod/</link>
+      <title>Halo Selamat Datang di Ajaib</title>
+      <link>http://localhost:1313/welcome-to-ajaib/</link>
       <pubDate>Fri, 18 Jul 2025 20:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/halo-papermod/</guid>
+      <guid>http://localhost:1313/welcome-to-ajaib/</guid>
       <description>&lt;img alt=&#34;Liu Mei&#34; height=&#34;405&#34; src=&#34;http://localhost:1313/images/liu-mei.webp&#34; width=&#34;720&#34;&gt;&#xA;&lt;p&gt;Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.&lt;/p&gt;&#xA;&lt;p&gt;Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id maupun semua turunan bisnisnya.&lt;/p&gt;</description>
     </item>
   </channel>
