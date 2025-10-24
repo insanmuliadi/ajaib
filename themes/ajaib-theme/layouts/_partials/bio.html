@@ -1,0 +1,17 @@
+<div class="author-info">
+    <div class="bio-label"><strong>Profil Penulis</strong></div> 
+    {{ $authorName := partial "author.html" . | plainify | strings.TrimSpace | lower }}
+    {{ if isset site.Data.authors $authorName }}
+    {{ $author := index site.Data.authors $authorName }}
+    <div class="author-profile">
+      {{ with $author.image }}<img src="{{ . }}" alt="{{ $author.name }}">{{ end }}
+      <div class="author-bio-info">
+        <strong>{{ $author.name }}</strong>
+        <div class="bio-info-txt">{{ $author.bio }}</div>
+      </div>
+    </div>
+    {{ else }}
+    {{ warnf "Author '%s' tidak ditemukan dalam site.Data.authors" $authorName }}
+    <p>Ajaib Team merupakan staf resmi dari Ajaib yang berkontribusi besar dalam kemajuan web ini.</p>
+    {{ end }}
+  </div>

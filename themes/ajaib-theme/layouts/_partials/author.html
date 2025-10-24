@@ -1,0 +1,4 @@
+{{ $author := .Params.author | default .Site.Params.defaultAuthor }}
+{{ $author := .Params.author }}
+{{ $authors := .Params.authors }}
+{{ if $author }}<a href="/author/{{- $author | urlize }}">{{- $author -}}</a>{{ else if $authors }}{{ range $index, $name := $authors }}{{ if $index }}, {{ end }}<a href='{{ (printf "/authors/%s/" (urlize $name)) | relURL }}'>{{- $name -}}</a>{{ end }}{{ else }}{{- .Site.Params.defaultAuthor -}}{{ end }}

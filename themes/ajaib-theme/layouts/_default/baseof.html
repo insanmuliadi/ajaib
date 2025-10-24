@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class='{{ if eq .Kind "home" }}Home{{ else if eq .Kind "section" }}Section{{ else if eq .Kind "taxonomy" }}Taxonomy-list{{ else if eq .Kind "term" }}Taxonomy-term{{ else if eq .Kind "page" }}Single-page{{ else if eq .Kind "404" }}Halaman-404{{ end }}'>
+  <header class="ajaib-header">
+  {{ partial "header.html" . }}
+  </header>
+  <main class="ajaib-main">
+    <div class="maincontent row-width">
+    {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  {{ partial "footer.html" . }}
+  <div class='panelItem toTop' onclick='topFunction()' title='Go to top'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></div>
+  {{ partial "footerjs.html" . }}
+</body>
+</html>

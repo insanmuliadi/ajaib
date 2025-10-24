@@ -1,0 +1,28 @@
+{
+    "mul": {
+      "name": "Bang Mul",
+      "bio": "Web Developer",
+      "image": "/images/megumin.webp"
+    },
+    "insan muliadi": {
+      "name": "Insan Muliadi",
+      "bio": "Web Developer, www.goinsan.com",
+      "image": "/images/megumin.webp"
+    },
+    "ajaib": {
+      "name": "Ajaib Megumin", 
+      "bio": "Merupakan seorang penyihir dari klan Mata Merah. Ia mengklaim bahwa dirinya adalah penyihir terhebat yang pernah ada. Jurus andalannya adalah explossion",
+      "image": "/images/megumin.webp"
+    },
+    "insan muliadi, bang ja": {
+      "name": "Insan muliadi & bang ja", 
+      "bio": "Designer",
+      "image": "/images/megumin.webp"
+    },
+    "ajaib team": {
+      "name": "Ajaib Team", 
+      "bio": "Ajaib Team merupakan staf resmi dari Ajaib yang berkontribusi besar dalam kemajuan web ini.",
+      "image": "/images/megumin.webp"
+    }
+
+  }

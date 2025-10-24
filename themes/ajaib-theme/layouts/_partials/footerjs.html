@@ -1,0 +1,15 @@
+<script>
+const menux = document.querySelector('.ajaib-menu');
+const menuBody = document.body;
+function addActive(buttonNumber) {
+	menux.classList.toggle('active');
+    menuBody.classList.toggle('active');
+};
+window.onclick = function(event) {
+	if (!event.target.closest('#menu-button') && !event.target.closest('.ajaib-menu') && !event.target.closest('#bukaMenu')) {
+		if (menux.classList.contains('active')) {
+			menux.classList.remove('active');menuBody.classList.remove('active');
+		} else {}
+	}
+};
+</script>

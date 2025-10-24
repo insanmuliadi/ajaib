@@ -1,4 +1,87 @@
 baseURL: 'https://ajaib.my.id/'
 languageCode: 'en-us'
 title: 'Ajaib'
-theme: "hextra"
+description: "Sumber informasi harian tentang tips, peluang bisnis, dan perkembangan kripto di Indonesia."
+keywords: [tips bisnis, crypto]
+theme: 'ajaib-theme'
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  defaultAuthor: "Ajaib Team"
+  contact:
+    email: info@example.org
+    phone: +1 202-555-1212
+  subtitle: The Best Widgets on Earth
+  description: 'Sumber informasi harian tentang tips, peluang bisnis, dan perkembangan kripto di Indonesia.'
+  keywords: tips bisnis, crypto
+  ShowBreadCrumbs: true
+  analytics:
+    google:
+      SiteVerificationTag: "-xd7gN5QFM3JprS3v3840rU-NvkdH6fRbcmj0CfAf6w"
+
+permalinks:
+  page:
+    posts: "/:slug/"
+    pages: "/:slug/"
+    news: "/news/:slug/"
+
+menus:
+  main:
+  - name: 'Artikel'
+    pageref: '/posts'
+    weight: 2
+  - name: "Label"
+    pageref: '/tags'
+    weight: 3
+  - name: "Kategori"
+    pageref: '/categories/'
+    weight: 4
+  - name: "Layanan ↗"
+    url: '/layanan/'
+    weight: 5
+
+  footer:
+  - name: About Us
+    pageRef: '/about-us/'
+    weight: 10
+  - name: Terms
+    pageRef: '/terms/'
+    weight: 20
+  - name: Privacy
+    pageRef: '/privacy/'
+    weight: 30
+  - name: Disclaimer
+    pageRef: '/disclaimer/'
+    weight: 40
+  - name: Contact
+    pageRef: '/contact/'
+    weight: 50
+
+imaging:
+  anchor: Center
+  bgColor: '#dddddd'
+  hint: photo
+  quality: 70
+  resampleFilter: box
+
+pagination:
+  pagerSize: 5
+
+taxonomies:
+  category: 'categories'
+  tag: 'tags'
+  author: 'authors'
+
+sitemap:
+  filename: 'sitemap.xml'
+  priority: -1
+
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+
+enableRobotsTXT: true
+

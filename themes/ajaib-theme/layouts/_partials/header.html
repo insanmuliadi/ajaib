@@ -1,0 +1,18 @@
+<div class="row-width header-width">
+    <div class="ajaib-logo">
+    {{ if .IsPage }}
+    <div class="ajaib-webtitle"><a href="{{ .Site.BaseURL }}">{{ site.Title }}</a></div>
+    {{ else }}
+    <h1 class="ajaib-webtitle"><a href="{{ .Site.BaseURL }}">{{ site.Title }}</a></h1>
+    {{ end }}
+</div>
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<div class="ajaib-search">
+    <form action="/search" method="GET">
+        <input type="search" name="q" id="search-query" placeholder="Search....">
+        <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="none" stroke="#d1d5dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg></button>
+    </form>
+</div>
+<div id="menu-button" aria-label="open menu" role="button" onclick="addActive(2)"><svg class="burger-icon" viewBox='0 0 24 24'><path fill="#d1d5dc" d='M24 21H0v-2.86h24V21zm0-10.43H0v2.86h24v-2.86zM24 3H0v2.86h24V3z'/></svg><svg class="menu-close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#d1d5dc" d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/></svg></div>
+</div>
+

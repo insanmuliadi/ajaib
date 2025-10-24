@@ -2,26 +2,11 @@
 date: '2025-07-19T15:10:23+08:00'
 draft: false
 title: 'Cara Mengatasi Blog Tidak Bisa Dibuka Dengan Xl'
-author: 'Ajaib'
+author: Ajaib
 # author: ["Me", "You"] # multiple authors
-showToc: true
-TocOpen: false
+tags: ['blog']
 draft: false
-hidemeta: false
-comments: false
-description: "Berikut ini cara mengatasi web atau blog tidak bisa dibuka dengan XL"
-# canonicalURL: "https://canonical.url/to/page"
-disableHLJS: true # to disable highlightjs
-disableShare: false
-disableHLJS: false
-hideSummary: false
-searchHidden: true
-ShowReadingTime: true
-ShowBreadCrumbs: true
-ShowPostNavLinks: true
-ShowWordCount: true
-ShowRssButtonInSectionTermList: true
-UseHugoToc: true
+description: 'Berikut ini cara mengatasi "web" atau blog tidak bisa dibuka dengan XL'
 image: 
   src: "/images/rto-xl.webp"
   alt: "Ilustrasi Connection Timeout di jaringan XL"

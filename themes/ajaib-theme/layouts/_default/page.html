@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<header>
+  <h1 class="post-title">{{ .Title }}</h1>
+  <div class="post-meta">
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  {{ partial "author.html" . }} - <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  </div>
+</header>
+{{ if ne .Params.toc false }}
+  <nav class="toc">
+    <h2>Daftar Isi</h2>
+    {{ .TableOfContents }}
+  </nav>
+{{ end }}
+
+<section class="entry-body">
+  {{ .Content }}
+  {{partial "bio.html" .}}
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+</section>
+{{ partial "share.html" . }}
+{{ partial "related.html" . }}
+
+{{ $pages := .CurrentSection.Pages.ByWeight }}
+
+{{ if or .PrevInSection .NextInSection }}
+<div class="nex-prev-nav">
+  {{ with .PrevInSection }}
+    <a class="np-link prev-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  {{ end }}
+
+  {{ with .NextInSection }}
+    <a class="np-link next-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  {{ end }}
+  </div>
+{{ end }}
+
+{{ end }}

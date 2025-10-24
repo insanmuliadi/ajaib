@@ -1,0 +1,15 @@
+
+<article class="post-card">
+  <div class="post-wrap">
+    {{ partial "thumbnail.html" . }}
+  <div class="entry-type">
+  <h2 class="entry-title">
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}
+    <!--{{ $slug := .Params.slug | default .File.BaseFileName }}
+      <a href="/{{ $slug }}/">{{ .Title }}</a>-->
+    </a>
+  </h2>
+  <div class="post-summary">{{ .Summary | plainify | truncate 150 }}</div>
+</div>
+</div>
+</article>

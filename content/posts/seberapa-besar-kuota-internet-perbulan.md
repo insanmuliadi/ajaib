@@ -3,12 +3,15 @@ date: '2025-07-20T13:24:07+08:00'
 draft: false
 title: 'Seberapa Besar Kuota Internet Perbulan'
 description: 'Seberapa besar kuota internet yang dibutuhkan untuk berbagai jenis aktifitas online dalam sebulan? Temukan jawabannya di sini.'
-image:
-  src: "/images/kebutuhan-kuota-internet.webp"
+//image:
+  //src: "/images/kebutuhan-kuota-internet.webp"
   alt: "kebutuhan kuota internet"
+tags: ["blog","tutor blogging"]
 ---
 
 <img alt="Ilustrasi kebutuhan kuota internet" src="/images/kebutuhan-kuota-internet.webp" height="576" width="1024">
+
+<!--{{< youtube dQw4w9WgXcQ >}}-->
 
 Seberapa besar kuota internet yang Anda butuhkan setiap bulannya?
 
@@ -40,4 +43,4 @@ Jumlah kebutuhan kuota internet yang Anda butuhkan sengat tergantung pada jenis 
 
 Apalagi kian hari maka harganya akan semakin mahal juga. Anda harus bijak dalam menganggarkan uang untuk paket internet ini agar tidak membebani finansial Anda.
 
-Semoga bermanfaat.
+Semoga bermanfaat!

@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  {{/* $paginator := .Paginate site.RegularPages */}}
+  {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
+  {{ range $paginator.Pages }}
+    {{ partial "post-card.html" . }}
+  {{ end }}
+
+  <div class="pagination">
+    {{ if gt $paginator.TotalPages 1 }}
+      {{ if $paginator.HasPrev }}
+        <a class="pag-btn" href="{{ $paginator.Prev.URL }}">Prev</a>
+      {{ end }}
+
+      {{ range $i, $page := $paginator.Pagers }}
+        {{ if eq $page $paginator }}
+          <div class="pag-btn current-page-btn">{{ add $i 1 }}</div>
+        {{ else }}
+          <a class="pag-btn" href="{{ $page.URL }}">{{ add $i 1 }}</a>
+        {{ end }}
+      {{ end }}
+
+      {{ if $paginator.HasNext }}
+        <a class="pag-btn" href="{{ $paginator.Next.URL }}">Next</a>
+      {{ end }}
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["file:///C:/Users/User/ajaib-web/assets/js/main.js"],"sourcesContent":["window.topFunction = function(name){document.body.scrollTop=0;document.documentElement.scrollTop=0}"],"mappings":";;AAAA,SAAO,cAAc,SAAS,MAAK;AAAC,aAAS,KAAK,YAAU;AAAE,aAAS,gBAAgB,YAAU;AAAA,EAAC;","names":[]}

@@ -1,0 +1,21 @@
+<footer class="ajaib-footer">
+    <div class="row-width">
+        <nav class="ajaib-menu footer-menu">
+            <ul>
+                {{- range site.Menus.footer }}
+                <li>
+                    <a href="{{ .PageRef }}">
+                    {{ .Name }}
+                    {{- with .Page }}
+                    {{- with .Params.version -}}
+                    ({{ . }})
+                    {{- end }}
+                    {{- end }}
+                    </a>
+                </li>
+                {{- end }}
+            </ul>
+        </nav>
+        <p class="footer-copyright">Copyright {{ now.Year }}. All rights reserved.</p>
+    </div>
+</footer>

@@ -1,0 +1,113 @@
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0' name='viewport'>
+{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
+<meta name="robots" content="index, follow">
+{{- else }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
+
+{{- /* Title */}}
+<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+
+{{- /* Meta */}}
+{{- if .IsHome }}
+{{ with site.Params.keywords -}}<meta name="keywords" content="{{- site.Params.keywords }}">{{ end }}
+{{- else }}
+<meta name="keywords" content="{{ if .Params.keywords -}}
+    {{- range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} {{- else }}
+    {{- range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} {{- end -}}">
+{{- end }}
+<meta name="description" content="{{ if .IsHome }}{{- .Site.Params.description | htmlEscape | safeHTML }}{{ else }}{{ with .Params.description }}{{ . | htmlEscape | safeHTML }}{{ else }}{{- .Summary | plainify | htmlEscape | truncate 150 }}{{ end }}{{ end }}">
+<meta name="author" content="{{ partials ".author.html"}}">
+<link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
+{{- if site.Params.analytics.google.SiteVerificationTag }}
+<meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
+{{- end }}
+{{- if site.Params.analytics.yandex.SiteVerificationTag }}
+<meta name="yandex-verification" content="{{ site.Params.analytics.yandex.SiteVerificationTag }}">
+{{- end }}
+{{- if site.Params.analytics.bing.SiteVerificationTag }}
+<meta name="msvalidate.01" content="{{ site.Params.analytics.bing.SiteVerificationTag }}">
+{{- end }}
+{{- if site.Params.analytics.naver.SiteVerificationTag }}
+<meta name="naver-site-verification" content="{{ site.Params.analytics.naver.SiteVerificationTag }}">
+{{- end }}
+{{- /* Favicons */}}
+<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.svg" | absURL }}">
+<link rel="icon" type="image/svg" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon.svg" | absURL }}">
+<link rel="icon" type="image/svg" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon.svg" | absURL }}">
+<link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "favicon.svg" | absURL }}">
+<link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "favicon.svg" | absURL }}">
+<meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
+<meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
+{{ partialCached "head/js.html" . }}
+{{ partial "opengraph.html" . }}
+{{ partial "twitter_cards.html" . }}
+{{ if .IsHome }}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Nama Website Anda",
+        "url": "{{ .Site.BaseURL }}",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.websiteanda.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+{{ end }}
+<script type='application/ld+json'>
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ printf "%s" .RelPermalink | safeHTML }}"
+      },
+      "url": "{{ printf "%s" .RelPermalink | safeHTML }}",
+      "headline": "{{ .Title }}",
+      "description": "{{ .Params.description }}",
+      "articleBody":"{{ .Summary | plainify | truncate 300 }}",
+      "isAccessibleForFree": true,
+      "articleSection": ["motor", "motor-sport", "otomotif", "suzuki", "suzuki-gsx-150r"],
+      "keywords": "{{ .Params.keywords }}",
+      "inLanguage":"{{ .Site.LanguageCode }}",  
+
+      {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+      "dateCreated": "{{ .PublishDate.Format $ISO8601 | jsonify }}",
+      "datePublished": "{{ .PublishDate.Format $ISO8601 | jsonify }}",
+      "dateModified": "{{ .Lastmod.Format $ISO8601 | jsonify }}",
+
+    {{- with .WordCount }}
+      "wordCount": "{{ . }}",
+    {{- end }}  
+      "image": {
+        "@type": "ImageObject",
+        
+        "url": "{{ .Params.image.src }}",
+        "height": 630,
+        "width": 1200
+        
+      },
+      
+     "publisher": {
+        "@type": "Organization",
+        "name": "Ajaib",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTPSD4AWMNWUfoZkIdR0VBtPuyBndvLsjSH8_cJBBy37JwAv-WGY8HTNMeGH-ktweVhohrXNlhYMGD3hkYlnT1VqQ00GlEFM97Eq2-5IyRciQnN-qX-R67OnUBKSN55rpYwfQcdGTPQ_JlzsmTz5jnd2Nxww5r-2M_WKkqfY8NtiyGpZBTCaX1r5t3Vg/s1600/goinsan-logo-2-min.png",
+          "width": 128,
+          "height": 128
+        }
+      },
+      "author": {
+      "@type":"Person",
+    "name":"San Muliadi",
+    "description":"Penulis di GoInsan.com yang fokus menulis tentang bisnis dan beberapa hal menarik lainnya.",
+    "url":"https://www.goinsan.com/p/insan-muliadi.html"
+      }
+    }
+    </script>
+    {{ partialCached "head/css.html" . }}

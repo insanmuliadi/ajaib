@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <h2>{{ .Title }}</h2>
+  {{ .Content }}
+  {{ range .Pages }}
+    <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+    {{ .Summary | plainify | truncate 150 }}
+  {{ end }}
+{{ end }}

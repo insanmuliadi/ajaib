@@ -1,0 +1,13 @@
+{{ with site.RegularPages.Related . | first 5 }}
+  <p>Related content:</p>
+  <ul class="rel-ul">
+    {{ range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          {{ partial "thumbnail.html" . }}
+          {{ .LinkTitle }}
+        </a>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}

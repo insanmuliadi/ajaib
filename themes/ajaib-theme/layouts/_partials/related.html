@@ -1,0 +1,27 @@
+{{ $current := . }}
+{{ $related := slice }}
+
+{{ with .Params.tags }}
+  {{ $related = where site.RegularPages "Params.tags" "intersect" . }}
+  {{ $related = where $related "Permalink" "ne" $current.Permalink }}
+  {{ $related = first 5 $related }}
+{{ end }}
+
+{{ if gt (len $related) 0 }}
+<div class="related-content">
+  <h2>Related Posts</h2>
+  <ul class="related-wrap">
+  {{ range $related }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        {{ partial "thumbnail.html" . }}
+        <div>
+        <div class="related-title">{{ .Title }}</div>
+        <div class="related-summary">{{ .Summary | plainify | truncate 150 }}</div>
+        </div>
+      </a>
+    </li>
+  {{ end }}
+  </ul>
+  </div>
+{{ end }}
