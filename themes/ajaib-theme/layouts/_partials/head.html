@@ -78,9 +78,9 @@
       "inLanguage":"{{ .Site.LanguageCode }}",  
 
       {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
-      "dateCreated": "{{ .PublishDate.Format $ISO8601 | jsonify }}",
-      "datePublished": "{{ .PublishDate.Format $ISO8601 | jsonify }}",
-      "dateModified": "{{ .Lastmod.Format $ISO8601 | jsonify }}",
+      "dateCreated": "{{ .PublishDate.Format $ISO8601 | safeHTML }}",
+      "datePublished": "{{ .PublishDate.Format $ISO8601 | safeHTML }}",
+      "dateModified": "{{ .Lastmod.Format $ISO8601 | safeHTML }}",      
 
     {{- with .WordCount }}
       "wordCount": "{{ . }}",
