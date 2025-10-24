@@ -7,7 +7,7 @@
 <title>Insan Muliadi | Ajaib</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<meta name="author" content="{0xc0041f0000 0xc003d46168}">
+<meta name="author" content="{0xc004444300 0xc004b150c0}">
 <link rel="canonical" href="http://localhost:1313/authors/insan-muliadi/">
 <meta name="google-site-verification" content="-xd7gN5QFM3JprS3v3840rU-NvkdH6fRbcmj0CfAf6w">
 <link rel="icon" href="http://localhost:1313/favicon.svg">
@@ -45,7 +45,7 @@
       "description": "",
       "articleBody":"",
       "isAccessibleForFree": true,
-      "articleSection": ["motor", "motor-sport", "otomotif", "suzuki", "suzuki-gsx-150r"],
+      "articleSection": [""],
       "keywords": "",
       "inLanguage":"en-us",
       "dateCreated": "\u00222025-10-21T00:00:00\u002b00:00\u0022",
@@ -79,7 +79,6 @@
     }
     </script>
     
-    <link rel="stylesheet" href="/css/main.css">
 <style>
   *,*::before,*::after{box-sizing:border-box}*{margin:0}@media (prefers-reduced-motion:no-preference){html{interpolate-size:allow-keywords}}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}p{text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balance}#root,#__next{isolation:isolate}
   html{scroll-behavior:smooth;height:100%;--scrollbarBG:transparent}
@@ -91,7 +90,7 @@
   body{font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";font-size:16px;min-height:100vh;display: flex;flex-direction: column;transition: ease-in-out .2s;}
   img{width:100%;max-width:100%;height:auto}
   svg{width:24px;height:24px}
-  a{color:var(--link)}
+  a{color:var(--link);text-decoration:none;}
   b,strong{font-weight: bold;}
   ol,ul{padding:0;margin:0}
   i,em{font-style:italic}
@@ -114,7 +113,7 @@
   .ajaib-main{flex:1}
   .post-wrap{display:flex}
   .post-card{margin-bottom:15px}
-  .post-wrap img{margin-right:13px;margin-bottom:10px;flex-grow:0;flex-shrink:0;width:120px;height:120px}
+  .post-wrap img{margin-right:13px;margin-bottom:10px;flex-grow:0;flex-shrink:0;width:120px;height:120px;flex-basis:120px;}
   .breadcrumbs{margin-bottom: 15px;}
   .post-title{font-size:1.7em;line-height:1.2em;margin-bottom:10px}
   .entry-title{line-height:1.2;font-size:1.2em;margin-bottom:8px}
@@ -176,6 +175,9 @@
     body.active{transform:translateX(-60vw)}
     .ajaib-search{margin-right: 30px;}
   }
+  @media only screen and (max-width: 480px) {
+    .post-summary{display: none;}
+  }
 </style>
 
 
@@ -210,7 +212,7 @@
 <div class="ajaib-search">
     <form action="/search" method="GET">
         <input type="search" name="q" id="search-query" placeholder="Search....">
-        <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="none" stroke="#d1d5dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg></button>
+        <button type="submit" aria-label="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="none" stroke="#d1d5dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg></button>
     </form>
 </div>
 <div id="menu-button" aria-label="open menu" role="button" onclick="addActive(2)"><svg class="burger-icon" viewBox='0 0 24 24'><path fill="#d1d5dc" d='M24 21H0v-2.86h24V21zm0-10.43H0v2.86h24v-2.86zM24 3H0v2.86h24V3z'/></svg><svg class="menu-close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#d1d5dc" d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/></svg></div>
