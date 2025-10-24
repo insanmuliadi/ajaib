@@ -112,9 +112,10 @@
         "@type": "Person",
         "name": {{ $a | jsonify }},
         "url": "/authors/{{ $a | urlize }}"
+      }
+      {{- end }}
+      ],
+      {{- end }}
     }
-    {{- end }}
-    ],
-{{- end }}
     </script>
     {{ partialCached "head/css.html" . }}
