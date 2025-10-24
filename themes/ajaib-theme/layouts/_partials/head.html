@@ -59,7 +59,6 @@
     </script>
 {{ end }}
 {{ $authorName := partial "author.html" . | plainify }}
-
 <script type='application/ld+json'>
     {
       "@context": "http://schema.org",
@@ -104,7 +103,9 @@
           "height": 128
         }
       },
-      {{- with .Params.authors }}
+      {{ $authors := .Params.authors }}
+      {{ if $authors }}
+      {{- with $authors }}
       "author": [
       {{- range $index, $a := . -}}
       {{- if $index}},{{ end }}
@@ -116,6 +117,13 @@
       {{- end }}
       ]
       {{- end }}
+      {{ else }}
+      "author":{
+        "@type": "Person",
+        "name": "{{ $authorName }}",
+        "url": "url"
+      }
+      {{ end }}
     }
     </script>
     {{ partialCached "head/css.html" . }}
