@@ -17,7 +17,7 @@ params:
     phone: +1 202-555-1212
   subtitle: The Best Widgets on Earth
   description: 'Sumber informasi harian tentang tips, peluang bisnis, dan perkembangan kripto di Indonesia.'
-  keywords: tips bisnis, crypto
+  keywords:  tips bisnis, crypto
   ShowBreadCrumbs: true
   analytics:
     google:
