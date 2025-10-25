@@ -84,4 +84,6 @@ outputs:
   home: ["HTML", "RSS", "JSON"]
 
 enableRobotsTXT: false
-
+enableGitInfo: true
+frontmatter:
+  lastmod: ["lastmod", ":git", "date", "publishDate"]
