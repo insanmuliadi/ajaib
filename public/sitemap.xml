@@ -3,7 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-25T15:03:42+08:00</lastmod>
+    <lastmod>2025-10-26T01:39:57+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-10-26T01:39:57+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/authors/</loc>
     <lastmod>2025-10-24T17:50:37+08:00</lastmod>
@@ -22,9 +25,6 @@
   </url><url>
     <loc>http://localhost:1313/pages/</loc>
     <lastmod>2025-10-24T13:16:22+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-10-25T15:03:42+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-10-25T15:03:42+08:00</lastmod>
@@ -64,8 +64,6 @@
   </url><url>
     <loc>http://localhost:1313/tags/tutor/</loc>
     <lastmod>2025-10-25T15:03:42+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/alasan-domain-my-id-tidak-layak-untuk-blog/</loc>
   </url><url>
     <loc>http://localhost:1313/search/</loc>
     <lastmod>2025-10-24T13:16:22+08:00</lastmod>
