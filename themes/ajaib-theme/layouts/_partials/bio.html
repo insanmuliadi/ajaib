@@ -6,7 +6,7 @@
     <div class="author-profile">
       {{ with $author.image }}<img src="{{ . }}" alt="{{ $author.name }}">{{ end }}
       <div class="author-bio-info">
-        <strong>{{ $author.name }}</strong>
+        <div class="bio-author-name"><strong>{{ $author.name }}</strong></div>
         <div class="bio-info-txt">{{ $author.bio }}</div>
       </div>
     </div>
