@@ -10,7 +10,7 @@ image:
 toc: true
 ---
 
-<img alt="ilustrasi dokumentasi" fetchpriority="high" src='/images/dokumentasi.webp'>
+<img alt="ilustrasi dokumentasi" fetchpriority="high" height="408" src='/images/dokumentasi.webp' width="680">
 
 Ajaib Theme adalah tema hugo modern yang dirancang khusus untuk website magazine, blog, dan portal berita. Tema ini dibangun dengan teknologi terkini dan mengutamakan kecepatan, SEO, dan user experience.
 
