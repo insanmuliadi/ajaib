@@ -131,6 +131,7 @@ Lakukan clean install dengan mereset tema, lalu paste kode tema Gomagz
   .post-card{margin-bottom:15px}
   .post-wrap img{margin-right:13px;flex-grow:0;flex-shrink:0;width:120px;height:120px;flex-basis:120px;}
   .breadcrumbs{margin-bottom: 15px;}
+  .breadcrumbs ol{list-style:none;display:flex;align-items:center}.breadcrumbs ol li{margin-right:5px}
   .title-header{margin-bottom:20px}
   .post-title{font-size:1.7em;line-height:1.2em;margin-bottom:10px}
   .entry-title{line-height:1.2;font-size:1.2em;margin-bottom:8px}
@@ -242,7 +243,22 @@ Lakukan clean install dengan mereset tema, lalu paste kode tema Gomagz
   <main class="ajaib-main">
     <div class="maincontent row-width">
     
-<div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href='http://localhost:1313/'>
+                <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" /> » </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="http://localhost:1313/posts/">
+                        <span itemprop="name">Posts</span>
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li></ol>
+</nav>
 <header class="title-header">
   <h1 class="post-title">Dokumentasi Tema GoMagz Free, Elements, Styles, Typography, Button, Boxes dan Lainnya</h1>
   <div class="post-meta">

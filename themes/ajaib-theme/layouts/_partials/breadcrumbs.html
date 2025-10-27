@@ -1,19 +1,35 @@
 {{- if (.Param "ShowBreadCrumbs") -}}
-<div class="breadcrumbs">
-    {{- $url := replace .Parent.Permalink (printf "%s" site.Home.Permalink) "" }}
-    {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
-
-    <a href="{{ "" | absLangURL }}">{{ i18n "home" | default "Home" }}</a>
-    {{- $scratch := newScratch }}
-    {{- range $index, $element := split $lang_url "/" }}
-
-    {{- $scratch.Add "path" (printf "%s/" $element )}}
-    {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
-
-    {{- if (and ($bc_pg) (gt (len . ) 0))}}
-    {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ $bc_pg.Permalink }}">{{ $bc_pg.Name }}</a>
-    {{- end }}
-
-    {{- end -}}
-</div>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        {{- $url := replace .Parent.Permalink (printf "%s" site.Home.Permalink) "" }}
+        {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
+        {{- $scratch := newScratch }}
+        {{- $position := 1 }}
+        
+        <!-- Home Item -->
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href='{{ "" | absLangURL }}'>
+                <span itemprop="name">{{ i18n "home" | default "Home" }}</span>
+            </a>
+            <meta itemprop="position" content="{{ $position }}" />
+            {{- print " » " | safeHTML -}}
+        </li>
+        {{- $scratch.Set "path" "" }}
+        
+        {{- range $index, $element := split $lang_url "/" }}
+            {{- $scratch.Add "path" (printf "%s/" $element )}}
+            {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+            
+            {{- if (and ($bc_pg) (gt (len . ) 0))}}
+                {{- $position = add $position 1 }}
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="{{ $bc_pg.Permalink }}">
+                        <span itemprop="name">{{ $bc_pg.Name }}</span>
+                    </a>
+                    <meta itemprop="position" content="{{ $position }}" />
+                </li>
+            {{- end }}
+        {{- end -}}
+    </ol>
+</nav>
 {{- end -}}
