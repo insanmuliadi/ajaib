@@ -27,7 +27,7 @@
 {{ $img := resources.Get $src }}
 {{ if $img }}
   {{ $thumb := $img.Fill "120x120" }}
-  <img class="thumbnail-img" loading="lazy" src="{{ $thumb.RelPermalink }}" alt="{{ $alt }}" width="120" height="120">
+  <img class="thumbnail-img" loading="lazy" src="{{ $thumb.RelPermalink }}" srcset="{{ $thumb.RelPermalink }}, {{ $thumb.RelPermalink }} 2x" alt="{{ $alt }}" width="120" height="120">
 {{ else }}
   <img src="/{{ $src }}" alt="{{ $alt }}" width="120" height="120">
 {{ end }}
