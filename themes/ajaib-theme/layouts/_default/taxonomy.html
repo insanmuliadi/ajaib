@@ -1,7 +1,14 @@
 {{ define "main" }}
-  <h2>{{ .Title }}</h2>
+  <h2 class="section-title">{{ .Title }}</h2>
   {{ .Content }}
   {{ range .Pages }}
+  <section class="taxonomy-section">
     <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+    {{ if .Summary }}
+    <div class="taxonomy-section-summary">
+    {{ .Summary | plainify | truncate 150 }}
+    </div>
+    {{ end }}
+  </section>
   {{ end }}
 {{ end }}

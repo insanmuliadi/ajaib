@@ -143,6 +143,7 @@
   .entry-body p a:not(figure a,table a){text-decoration:underline}
   .entry-body p a:not(figure a,table a)[target="_blank"] {padding-right: 14px;background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23B30000" d="M20.1 1.1h-17v3h14.6L1.9 19.9l2.2 2.2L20.1 6v15.1h3v-17-3z"/></svg>') no-repeat right 1px / .6em;border-right:4px solid transparent;}
   .entry-body details{margin-bottom:20px;}
+  .section-title{margin-bottom:20px}.taxonomy-section{margin-bottom:15px}.taxonomy-section-summary{margin-top:5px}
   .author-info{border:1px solid #ddd;border-left:0;border-right:0;padding:10px 0;margin-bottom:20px}
   .author-profile{display:flex}
   .bio-label{margin-bottom:15px;}
@@ -162,7 +163,7 @@
   .related-wrap li a img{margin-right:15px;flex: 0 0 120px;border-radius:3px}
   .related-title{font-weight:700;margin-bottom:5px;font-size:18px}
   .related-summary{color:#666666;line-height:1.2;font-size: 14px;margin-top:7px}
-  .toc{background:#fff;border-radius:2px;padding:15px;margin-bottom:22px;border:1px solid #bbb;box-shadow:2px 3px 0 rgb(0 0 0 / 6%)}nav.toc h2{font-size:16px;margin-bottom:10px}.toc ul{list-style:;padding-left:0}.toc li{margin-left:20px;margin-bottom: 10px;}.toc li:last-child{margin-bottom:0}.toc li a{color:#B30000}
+  .toc{background:#fff;border-radius:2px;padding:15px;margin-bottom:22px;border:1px solid #bbb;box-shadow:2px 3px 0 rgb(0 0 0 / 6%)}nav.toc h2{font-size:16px;margin-bottom:10px}.toc ul{list-style:;padding-left:0}.toc li{margin-left:20px;margin-bottom: 10px;}.toc li:last-child{margin-bottom:0}.toc li a{color:#B30000}.toc li ul,.toc li ol{margin-top:10px}
   .nex-prev-nav{display:flex;align-items:center;margin:20px 0}.np-link{flex:0 0 49%;padding:10px;border:1px solid #ddd;border-radius:2px;font-size:14px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;box-shadow:2px 3px 0 rgb(0 0 0 / 6%)}.next-link{margin-left:auto;text-align: right;}
   .pagination{display:flex;align-items:center;margin:30px 0}.pag-btn{padding:8px 12px;min-width:26px;text-align:center;border:1px solid #ddd;border-radius:2px;font-size:14px;color:#000}.pag-btn:not(:last-child){margin-right:4px}.pag-btn.current-page-btn{background:#ddd}
   .ajaib-footer{background-color:var(--maincolor);color:#d1d5db;padding:20px 0;}
@@ -228,16 +229,28 @@
   <main class="ajaib-main">
     <div class="maincontent row-width">
     
-  <h2>Tags</h2>
+  <h2 class="section-title">Tags</h2>
   
   
+  <section class="taxonomy-section">
     <h3><a href="/tags/blog/">Blog</a></h3>
+    
+  </section>
   
+  <section class="taxonomy-section">
     <h3><a href="/tags/tech/">Tech</a></h3>
+    
+  </section>
   
+  <section class="taxonomy-section">
     <h3><a href="/tags/tutor-blogging/">Tutor Blogging</a></h3>
+    
+  </section>
   
+  <section class="taxonomy-section">
     <h3><a href="/tags/tutor/">Tutor</a></h3>
+    
+  </section>
   
 
     </div>

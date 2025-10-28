@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h2>{{ .Title }}</h2>
+  <h2 class="term-title">{{ .Title }}</h2>
   {{ .Content }}
   {{ range .Pages }}
     <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
