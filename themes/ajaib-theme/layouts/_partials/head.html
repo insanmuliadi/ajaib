@@ -33,11 +33,13 @@
 <meta name="naver-site-verification" content="{{ site.Params.analytics.naver.SiteVerificationTag }}">
 {{- end }}
 {{- /* Favicons */}}
-<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.svg" | absURL }}">
-<link rel="icon" type="image/svg" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon.svg" | absURL }}">
-<link rel="icon" type="image/svg" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon.svg" | absURL }}">
-<link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "favicon.svg" | absURL }}">
-<link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "favicon.svg" | absURL }}">
+{{- /* Favicons */}}
+<link rel="icon" href="{{ site.Params.assets.favicon | absURL }}">
+<link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | absURL }}">
+{{- with site.Params.assets.safari_pinned_tab }}
+<link rel="mask-icon" href="{{ . | absURL }}">
+{{- end }}
+
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
 <meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
 {{/* partialCached "head/js.html" . */}}

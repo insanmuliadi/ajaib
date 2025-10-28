@@ -22,6 +22,10 @@ params:
   analytics:
     google:
       SiteVerificationTag: "-xd7gN5QFM3JprS3v3840rU-NvkdH6fRbcmj0CfAf6w"
+  assets:
+    favicon: "/favicon.svg"
+    apple_touch_icon: "/favicon.svg"
+    safari_pinned_tab: "/favicon.svg"
 
 permalinks:
   page:
