@@ -1,0 +1,33 @@
+{{/* Ambil data gambar dari front matter atau cari otomatis di konten */}}
+{{ $src := "" }}
+{{ $alt := .Params.image.alt | default "Gambar artikel" }}
+
+{{/* 1️⃣ Jika ada di front matter */}}
+{{ if .Params.image.src }}
+  {{ $src = .Params.image.src }}
+{{ else }}
+  {{/* 2️⃣ Jika tidak ada, cari tag <img> pertama di konten */}}
+  {{ $htmlImg := findRE "<img.*?src=[\"']([^\"']+)[\"']" .Content 1 }}
+  {{ if gt (len $htmlImg) 0 }}
+    {{ $src = replaceRE ".*src=[\"']([^\"']+)[\"'].*" "$1" (index $htmlImg 0) }}
+  {{ else }}
+    {{/* 3️⃣ Jika tidak ada juga, cari Markdown image pertama */}}
+    {{ $mdImg := findRE "!\\[[^\\]]*\\]\\(([^\\)]+)\\)" .RawContent 1 }}
+    {{ if gt (len $mdImg) 0 }}
+      {{ $src = replaceRE "!\\[[^\\]]*\\]\\(([^\\)]+)\\).*" "$1" (index $mdImg 0) }}
+    {{ else }}
+      {{/* 4️⃣ Fallback default image */}}
+      {{ $src = "/images/no-image.svg" }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+
+{{/* ✅ Sekarang proses thumbnail-nya */}}
+{{ $img := resources.Get $src }}
+{{ if $img }}
+  {{ $thumb := $img.Fill "120x120" }}
+  <img class="thumbnail-img" loading="lazy" src="{{ $thumb.RelPermalink }}" srcset="{{ $thumb.RelPermalink }}, {{ $thumb.RelPermalink }} 2x" alt="{{ $alt }}" width="120" height="120">
+{{ else }}
+  <img src="{{ $src }}" alt="{{ $alt }}" width="120" height="120">
+{{ end }}

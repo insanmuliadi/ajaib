@@ -6,28 +6,56 @@
 {{ if .Params.image.src }}
   {{ $src = .Params.image.src }}
 {{ else }}
-  {{/* 2️⃣ Jika tidak ada, cari tag <img> pertama di konten */}}
-  {{ $htmlImg := findRE "<img.*?src=[\"']([^\"']+)[\"']" .Content 1 }}
+  {{/* 2️⃣ Cari tag <img> pertama di konten */}}
+  {{ $htmlImg := findRE `<img.*?src=["']([^"']+)["']` .Content 1 }}
   {{ if gt (len $htmlImg) 0 }}
-    {{ $src = replaceRE ".*src=[\"']([^\"']+)[\"'].*" "$1" (index $htmlImg 0) }}
+    {{ $src = replaceRE `.*src=["']([^"']+)["'].*` "$1" (index $htmlImg 0) }}
   {{ else }}
-    {{/* 3️⃣ Jika tidak ada juga, cari Markdown image pertama */}}
-    {{ $mdImg := findRE "!\\[[^\\]]*\\]\\(([^\\)]+)\\)" .RawContent 1 }}
+    {{/* 3️⃣ Cari Markdown image pertama */}}
+    {{ $mdImg := findRE `!\[([^\]]*)\]\(([^)]+)\)` .RawContent 1 }}
     {{ if gt (len $mdImg) 0 }}
-      {{ $src = replaceRE "!\\[[^\\]]*\\]\\(([^\\)]+)\\).*" "$1" (index $mdImg 0) }}
-    {{ else }}
-      {{/* 4️⃣ Fallback default image */}}
-      {{ $src = "images/no-image.svg" }}
+      {{ $src = replaceRE `!\[([^\]]*)\]\(([^)]+)\)` "$2" (index $mdImg 0) }}
     {{ end }}
   {{ end }}
 {{ end }}
 
+{{/* ✅ Proses thumbnail dengan pengecekan yang lebih robust */}}
+{{ $img := false }}
 
-{{/* ✅ Sekarang proses thumbnail-nya */}}
-{{ $img := resources.Get $src }}
+{{/* Coba ambil dari Page Resources dulu */}}
+{{ if $src }}
+  {{ $img = .Resources.GetMatch $src }}
+{{ end }}
+
+{{/* Jika bukan Page Resource, coba dari assets/ */}}
+{{ if and (not $img) $src }}
+  {{ $cleanSrc := strings.TrimPrefix "/" $src }}
+  {{ with resources.Get $cleanSrc }}
+    {{ $img = . }}
+  {{ end }}
+{{ end }}
+
+{{/* Render gambar */}}
 {{ if $img }}
   {{ $thumb := $img.Fill "120x120" }}
-  <img class="thumbnail-img" loading="lazy" src="{{ $thumb.RelPermalink }}" srcset="{{ $thumb.RelPermalink }}, {{ $thumb.RelPermalink }} 2x" alt="{{ $alt }}" width="120" height="120">
+  <img class="thumbnail-img" loading="lazy" 
+       src="{{ $thumb.RelPermalink }}" 
+       srcset="{{ $thumb.RelPermalink }} 1x, {{ ($img.Fill "240x240").RelPermalink }} 2x" 
+       alt="{{ $alt }}" 
+       width="120" 
+       height="120">
+{{ else if $src }}
+  {{/* Fallback untuk gambar dari /static/ atau URL eksternal */}}
+  <img class="thumbnail-img" loading="lazy" 
+       src="{{ $src }}" 
+       alt="{{ $alt }}" 
+       width="120" 
+       height="120">
 {{ else }}
-  <img src="/{{ $src }}" alt="{{ $alt }}" width="120" height="120">
+  {{/* Fallback default jika tidak ada gambar sama sekali */}}
+  <img class="thumbnail-img" loading="lazy" 
+       src="/images/no-image.svg" 
+       alt="{{ $alt }}" 
+       width="120" 
+       height="120">
 {{ end }}
