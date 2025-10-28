@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Ajaib</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://ajaib.my.id/tags/</link>
     <description>Recent content in Tags on Ajaib</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Oct 2025 16:25:48 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ajaib.my.id/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/tags/blog/</link>
+      <link>https://ajaib.my.id/tags/blog/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/blog/</guid>
+      <guid>https://ajaib.my.id/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Tech</title>
-      <link>http://localhost:1313/tags/tech/</link>
+      <link>https://ajaib.my.id/tags/tech/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tech/</guid>
+      <guid>https://ajaib.my.id/tags/tech/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutor Blogging</title>
-      <link>http://localhost:1313/tags/tutor-blogging/</link>
+      <link>https://ajaib.my.id/tags/tutor-blogging/</link>
       <pubDate>Sun, 20 Jul 2025 13:24:07 +0800</pubDate>
-      <guid>http://localhost:1313/tags/tutor-blogging/</guid>
+      <guid>https://ajaib.my.id/tags/tutor-blogging/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutor</title>
-      <link>http://localhost:1313/tags/tutor/</link>
+      <link>https://ajaib.my.id/tags/tutor/</link>
       <pubDate>Fri, 18 Jul 2025 20:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/tutor/</guid>
+      <guid>https://ajaib.my.id/tags/tutor/</guid>
       <description></description>
     </item>
   </channel>
