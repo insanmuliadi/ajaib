@@ -1,0 +1,31 @@
+{{ $src := .Get "src" }}
+{{ $title := .Get "title" }}
+{{ $alt := .Get "alt" | default $title }}
+{{ $width := .Get "width" }}
+{{ $height := .Get "height" }}
+{{ $class := .Get "class" }}
+{{ $loading := .Get "loading" | default "lazy" }}
+{{ $caption := .Get "caption" }}
+{{ $link := .Get "link" }}
+{{ $target := .Get "target" }}
+{{ $rel := .Get "rel" }}
+
+<figure class="custom-figure {{ $class }}">
+  {{ with $link }}<a href="{{ . }}" {{ with $target }}target="{{ . }}"{{ end }} {{ with $rel }}rel="{{ . }}"{{ end }}>{{ end }}
+    <img 
+      src="{{ $src }}" 
+      alt="{{ $alt }}"
+      {{ with $width }}width="{{ . }}"{{ end }}
+      {{ with $height }}height="{{ . }}"{{ end }}
+      loading="{{ $loading }}"
+      {{ with $title }}title="{{ . }}"{{ end }}
+    >
+  {{ if $link }}</a>{{ end }}
+  
+  {{ if or $title $caption }}
+  <figcaption>
+    {{ with $title }}<strong>{{ . }}</strong>{{ end }}
+    {{ with $caption }}{{ . }}{{ end }}
+  </figcaption>
+  {{ end }}
+</figure>

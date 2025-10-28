@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-26T01:39:57+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-10-26T01:39:57+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/authors/</loc>
-    <lastmod>2025-10-24T17:50:37+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/bagaimana-teknologi-mengubah-masa-depan/</loc>
     <lastmod>2025-10-24T17:50:37+08:00</lastmod>
@@ -29,23 +29,26 @@
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-10-25T15:03:42+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/tech/</loc>
+    <lastmod>2025-10-24T17:50:37+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/about-us/</loc>
     <lastmod>2025-10-24T13:16:22+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-10-25T15:03:42+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/doc-formatting-styling/</loc>
-    <lastmod>2025-10-24T13:16:22+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/hugo/</loc>
-    <lastmod>2025-10-25T15:03:42+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/authors/mul/</loc>
-    <lastmod>2025-10-24T13:16:22+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/tutorial/</loc>
-    <lastmod>2025-10-25T15:03:42+08:00</lastmod>
+    <lastmod>2025-10-27T17:39:37+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/dokumentasi-formatting-styling/</loc>
     <lastmod>2025-10-24T13:16:22+08:00</lastmod>
