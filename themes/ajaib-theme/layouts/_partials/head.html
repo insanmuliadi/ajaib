@@ -24,8 +24,8 @@
     {{- range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }} {{- end -}}">
 {{- end }}
 <meta name="description" content="{{ if .IsHome }}{{- .Site.Params.description | htmlEscape | safeHTML }}{{ else }}{{ with .Params.description }}{{ . | htmlEscape | safeHTML }}{{ else }}{{- .Summary | plainify | htmlEscape | truncate 150 }}{{ end }}{{ end }}">
-<meta name="author" content="{{ partials ".author.html"}}">
-<link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
+<meta name="author" content='{{ partials ".author.html"}}'>
+<link rel="canonical" href='{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}'>
 {{- if site.Params.analytics.google.SiteVerificationTag }}
 <meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
 {{- end }}
@@ -46,8 +46,8 @@
 <link rel="mask-icon" href="{{ . | absURL }}">
 {{- end }}
 
-<meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
-<meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
+<meta name="theme-color" content='{{ site.Params.assets.theme_color | default "#2e2e33" }}'>
+<meta name="msapplication-TileColor" content='{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}'>
 {{/* partialCached "head/js.html" . */}}
 {{ partial "opengraph.html" . }}
 {{ partial "twitter_cards.html" . }}
