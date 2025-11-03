@@ -6,7 +6,7 @@
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   {{ partial "author.html" . }} - <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-  <img alt="view counter" class="viewcounter" src="https://hitscounter.dev/api/hit?url={{ .RelPermalink }}&label=&icon=eye&color=%23198754&message=&style=flat-square&tz=Asia%2FJakarta"/>
+  <img alt="view counter" class="viewcounter" src="https://hitscounter.dev/api/hit?url={{ .Permalink }}&label=&icon=eye&color=%23198754&message=&style=flat-square&tz=Asia%2FJakarta"/>
   </div>
 </header>
 {{ if ne .Params.toc false }}
