@@ -1,10 +1,16 @@
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0' name='viewport'>
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
-<meta name="robots" content="index, follow">
-{{- else }}
-<meta name="robots" content="noindex, nofollow">
-{{- end }}
+
+{{/* Tentukan apakah halaman seharusnya diindeks */}}
+{{ $isProduction := or hugo.IsProduction (eq site.Params.env "production") }}
+{{ $isNoIndexPage := or .Params.robotsNoIndex (eq .Kind "404") }}
+
+{{ if and $isProduction (not $isNoIndexPage) }}
+  <meta name="robots" content="index, follow">
+{{ else }}
+  <meta name="robots" content="noindex, nofollow">
+{{ end }}
+
 
 {{- /* Title */}}
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
