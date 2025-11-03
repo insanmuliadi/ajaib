@@ -134,6 +134,7 @@
       {{ end }}
     }
     </script>
-    {{/* partialCached "head/css.html" . */}}
-    {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
-    <style>{{ $css.Content | safeCSS }}</style>
+    {{ partialCached "head/css.html" . }}
+
+    <!--{{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+    <style>{{ $css.Content | safeCSS }}</style>-->
