@@ -3,19 +3,26 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0' name='viewport'>
-<meta name="robots" content="noindex, nofollow">
+
+
+
+
+
+
+  <meta name="robots" content="noindex, nofollow">
+
 <title>Search | Ajaib</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<meta name="author" content="{0xc000158300 0xc0000c0d68}">
-<link rel="canonical" href="http://localhost:1313/search/">
+<meta name="author" content='{0xc000158300 0xc0000c0d68}'>
+<link rel="canonical" href='http://localhost:1313/search/'>
 <meta name="google-site-verification" content="-xd7gN5QFM3JprS3v3840rU-NvkdH6fRbcmj0CfAf6w">
 <link rel="icon" href="http://localhost:1313/favicon.svg?v=2">
 <link rel="apple-touch-icon" href="http://localhost:1313/favicon.svg">
 <link rel="mask-icon" href="http://localhost:1313/favicon.svg">
 
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="theme-color" content='#2e2e33'>
+<meta name="msapplication-TileColor" content='#2e2e33'>
 
 <meta property="og:url" content="http://localhost:1313/search/">
   <meta property="og:site_name" content="Ajaib">
@@ -81,7 +88,7 @@
     </script>
     
 <style>
-  *,*::before,*::after{box-sizing:border-box}*{margin:0}@media (prefers-reduced-motion:no-preference){html{interpolate-size:allow-keywords}}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word;}p{text-wrap:pretty}h1,h2,h3,h4,h5,h6{text-wrap:balance}#root,#__next{isolation:isolate}
+  *,*::before,*::after{box-sizing:border-box}*{margin:0}@media (prefers-reduced-motion:no-preference){html{interpolate-size:allow-keywords}}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word;}p{text-wrap:pretty}#root,#__next{isolation:isolate}
   html{scroll-behavior:smooth;height:100%;--scrollbarBG:transparent}
   :root{
     --maincolor: #171e27;
@@ -121,7 +128,8 @@
   .post-title{font-size:1.6em;line-height:1.2em;margin-bottom:15px}
   .entry-title{line-height:1.2;font-size:1.18em;margin-bottom:5px}
   .post-summary{font-size:14px;line-height:1.4}
-  .post-meta{font-size: 14px;}
+  .post-meta{font-size: 14px;position:relative}
+  .viewcounter{width:auto;height:20px;position:absolute;right:0;top:-3px;border-radius:2px}
   .post-meta a {text-decoration:underline;}
   .entry-body p{margin-bottom:1em;line-height:1.4;font-size:15.6px}
   .entry-body h2,.entry-body h3,.entry-body h4{margin:30px 0 10px;line-height: 1.2;}
@@ -170,6 +178,10 @@
   .ajaib-menu.footer-menu ul{padding:0;margin-bottom:10px}
   .footer-copyright{font-size:14px}
   .toTop{position:fixed;right:13px;bottom:70px;display:block;padding:8px;background:#f8f8f8;border-radius:2px;box-shadow: 2px 3px 0 rgb(0 0 0 / 6%);border: 1px solid #ddd;}
+   
+  .body-search{display:flex;margin-bottom:20px;width:100%;position:relative}.search-input{padding:10px 45px 10px 10px;width:100%;border:1px solid #ddd;border-radius:3px}.search-button{background:none;border:none;position:absolute;right:0;top:0;height:100%;padding:8px}.search-button svg{fill:#333!important}
+   
+  .error-page{min-height:80vh;display:flex;align-items:center;justify-content:center;margin-bottom:2rem}.error-container{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:900px;margin:0 auto}.error-number{font-size:6rem;font-weight:700;color:#e74c3c;margin-bottom:1rem}.error-title{font-size:2rem;margin-bottom:1rem;color:#2c3e50}.error-message{font-size:1.1rem;color:#7f8c8d;margin-bottom:2rem;line-height:1.6}.error-actions{display:flex;gap:1rem;flex-wrap:wrap}.btn{padding:.75rem 1.5rem;text-decoration:none;border-radius:8px;font-weight:600;transition:all 0.3s ease}.btn-primary{background:#3498db;color:#fff}.btn-primary:hover{background:#2980b9;transform:translateY(-2px)}.btn-secondary{background:#ecf0f1;color:#2c3e50}.btn-secondary:hover{background:#bdc3c7}.error-illustration{color:#bdc3c7}.error-illustration svg{width:100%;height:100%}
   @media only screen and (max-width: 600px) {
     .row-width{width:92%}
     #menu-button{display: block;}
@@ -183,6 +195,11 @@
   @media only screen and (max-width: 480px) {
     .post-summary{display: none;}
     .entry-title{font-size:1.1em}
+    .post-title{font-size:1.4em;}
+    .entry-body h2{font-size:1.3em;}
+    .entry-body h3{font-size:1.25em}
+    .entry-body h4{font-size:1.15em}
+    .entry-body h5{font-size:1.08em}
   }
 </style>
 
@@ -231,13 +248,17 @@
     
 
 <main>
+    <form class="body-search" action="/search" method="GET">
+        <input class="search-input" type="search" name="q" id="search-query" placeholder="Search....">
+        <button class="search-button" type="submit" aria-label="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="none" stroke="#d1d5dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg></button>
+    </form>    
     <div id="search-results"></div>
     <div class="search-loading">Loading...</div>
 
     <script id="search-result-template" type="text/x-js-template">
-    <div id="summary-${key}">
-        <h2><a href="${link}">${title}</a></h2>
-        <p>${snippet}</p>
+    <div class="post-card" id="summary-${key}">
+        <h2 class="entry-title"><a href="${link}">${title}</a></h2>
+        <p class="post-summary">${snippet}</p>
         <p>
             <small>
                 ${ isset tags }Tags: ${tags}<br>${ end }

@@ -1,13 +1,17 @@
 {{ define "main" }}
 
 <main>
+    <form class="body-search" action="/search" method="GET">
+        <input class="search-input" type="search" name="q" id="search-query" placeholder="Search....">
+        <button class="search-button" type="submit" aria-label="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="none" stroke="#d1d5dc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg></button>
+    </form>    
     <div id="search-results"></div>
     <div class="search-loading">Loading...</div>
 
     <script id="search-result-template" type="text/x-js-template">
-    <div id="summary-${key}">
-        <h2><a href="${link}">${title}</a></h2>
-        <p>${snippet}</p>
+    <div class="post-card" id="summary-${key}">
+        <h2 class="entry-title"><a href="${link}">${title}</a></h2>
+        <p class="post-summary">${snippet}</p>
         <p>
             <small>
                 ${ isset tags }Tags: ${tags}<br>${ end }
