@@ -162,6 +162,14 @@ function param(name) {
     return decodeURIComponent((location.search.split(name + '=')[1] || '').split('&')[0]).replace(/\+/g, ' ');
 }
 
-
+// PRESERVATION FIX - Add to end of your existing JS file
+document.addEventListener('DOMContentLoaded', function() {
+    var searchQuery = param("q");
+    if (searchQuery) {
+        document.querySelectorAll('input[name="q"]').forEach(function(input) {
+            input.value = searchQuery;
+        });
+    }
+});
 </script>
 {{ end }}
