@@ -658,12 +658,5 @@ window.onclick = function(event) {
 };
 window.topFunction = function(name){document.body.scrollTop=0;document.documentElement.scrollTop=0}
 </script>
-
-
-<script>(()=>{console.log("Hello Hugo!"),window.topFunction=function(){document.body.scrollTop=0,document.documentElement.scrollTop=0};var e=class{constructor(){this.key="dark-mode",this.init()}init(){this.applySavedTheme(),this.setupToggle()}getSystemPreference(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}getSavedTheme(){return localStorage.getItem(this.key)}applySavedTheme(){const e=this.getSavedTheme(),t=this.getSystemPreference(),n=e||t;document.documentElement.setAttribute("data-theme",n)}setupToggle(){const e=document.querySelector(".dark-mode-toggle");e&&e.addEventListener("click",()=>{this.toggleTheme()})}toggleTheme(){const t=document.documentElement.getAttribute("data-theme"),e=t==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",e),localStorage.setItem(this.key,e)}};document.addEventListener("DOMContentLoaded",()=>{new e})})()</script>
-<button class="dark-mode-toggle" aria-label="Toggle dark mode">
-    <span class="light-icon">☀️</span>
-    <span class="dark-icon">🌙</span>
-</button>
 </body>
 </html>

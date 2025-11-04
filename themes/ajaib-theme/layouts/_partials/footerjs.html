@@ -14,10 +14,3 @@ window.onclick = function(event) {
 };
 window.topFunction = function(name){document.body.scrollTop=0;document.documentElement.scrollTop=0}
 </script>
-{{ $darkModeJS := resources.Get "js/main.js" | js.Build | minify | fingerprint }}
-
-<script>{{ $darkModeJS.Content | safeJS }}</script>
-<button class="dark-mode-toggle" aria-label="Toggle dark mode">
-    <span class="light-icon">☀️</span>
-    <span class="dark-icon">🌙</span>
-</button>
