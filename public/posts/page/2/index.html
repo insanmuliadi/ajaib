@@ -91,11 +91,15 @@
   *,*::before,*::after{box-sizing:border-box}*{margin:0}@media (prefers-reduced-motion:no-preference){html{interpolate-size:allow-keywords}}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word;}p{text-wrap:pretty}#root,#__next{isolation:isolate}
   html{scroll-behavior:smooth;height:100%;--scrollbarBG:transparent}
   :root{
+    --pagebg: #ffffff;
     --maincolor: #171e27;
     --link: #B30000;
     --linkblue: #0052BD
   }
-  body{font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";font-size:16px;min-height:100vh;display: flex;flex-direction: column;transition: ease-in-out .2s;line-height:1}
+  [data-theme="dark"]{
+    --pagebg: #333333
+  }
+  body{background:var(--pagebg);font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, "Segoe UI", Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";font-size:16px;min-height:100vh;display: flex;flex-direction: column;transition: ease-in-out .2s;line-height:1}
   img{width:100%;max-width:100%;height:auto}
   svg{width:24px;height:24px}
   a{color:var(--link);text-decoration:none;}
@@ -204,6 +208,7 @@
     .ajaib-menu ul li{margin-right:10px;}.ajaib-header .ajaib-menu ul li{margin:0 0 15px;}
     body.active{transform:translateX(-60vw);overflow:hidden}
     .ajaib-search{margin-right: 30px;}
+    .entry-body p{font-size:16px}
   }
   @media only screen and (max-width: 480px) {
     .post-summary{display: none;}
@@ -442,5 +447,12 @@ window.onclick = function(event) {
 };
 window.topFunction = function(name){document.body.scrollTop=0;document.documentElement.scrollTop=0}
 </script>
+
+
+<script>(()=>{console.log("Hello Hugo!"),window.topFunction=function(){document.body.scrollTop=0,document.documentElement.scrollTop=0};var e=class{constructor(){this.key="dark-mode",this.init()}init(){this.applySavedTheme(),this.setupToggle()}getSystemPreference(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}getSavedTheme(){return localStorage.getItem(this.key)}applySavedTheme(){const e=this.getSavedTheme(),t=this.getSystemPreference(),n=e||t;document.documentElement.setAttribute("data-theme",n)}setupToggle(){const e=document.querySelector(".dark-mode-toggle");e&&e.addEventListener("click",()=>{this.toggleTheme()})}toggleTheme(){const t=document.documentElement.getAttribute("data-theme"),e=t==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",e),localStorage.setItem(this.key,e)}};document.addEventListener("DOMContentLoaded",()=>{new e})})()</script>
+<button class="dark-mode-toggle" aria-label="Toggle dark mode">
+    <span class="light-icon">☀️</span>
+    <span class="dark-icon">🌙</span>
+</button>
 </body>
 </html>
