@@ -143,7 +143,8 @@
   .entry-body h4{font-size:1.2em}
   .entry-body h5{font-size:1.1em}
   .entry-body>img,.entry-body>figure{margin-bottom:1.4em}
-  figcaption{margin-top:5px;font-size:14px}
+  .entry-body figcaption{margin:5px auto 0;font-size:14px}
+  .entry-body figcaption *{font-size:inherit!important}
   .entry-body ol,.entry-body ul{margin-left:34px;margin-bottom:2em;line-height: 1.4;}
   .entry-body table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;border-radius:2px;overflow:hidden;}
   .entry-body th,.entry-body td{padding:10px 15px;text-align:left;border-bottom:1px solid #e9ecef}
@@ -182,7 +183,7 @@
   .ajaib-footer{background-color:var(--maincolor);color:#d1d5db;padding:20px 0;}
   .ajaib-menu.footer-menu ul{padding:0;margin-bottom:10px}
   .footer-copyright{font-size:14px}
-  .toTop{position:fixed;right:13px;bottom:70px;display:block;padding:8px;background:#f8f8f8;border-radius:2px;box-shadow: 2px 3px 0 rgb(0 0 0 / 6%);border: 1px solid #ddd;}
+  .toTop{display:none;position:fixed;right:13px;bottom:70px;padding:8px;background:#f8f8f8;border-radius:2px;box-shadow: 2px 3px 0 rgb(0 0 0 / 6%);border: 1px solid #ddd;}
    
   .body-search{display:flex;margin-bottom:20px;width:100%;position:relative}.search-input{padding:10px 45px 10px 10px;width:100%;border:1px solid #ddd;border-radius:3px}.search-button{background:none;border:none;position:absolute;right:0;top:0;height:100%;padding:8px}.search-button svg{fill:#333!important}
    
@@ -218,6 +219,8 @@
     .entry-body h3{font-size:1.25em}
     .entry-body h4{font-size:1.15em}
     .entry-body h5{font-size:1.08em}
+    .entry-body figure,.entry-body>img{width: 100vw;max-width: 100vw;margin-left: calc(-50vw + 50%);margin-right: calc(-50vw + 50%);}
+    figcaption{max-width:92%}
   }
 </style>
 
@@ -430,8 +433,9 @@ Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id …</di
     </div>
 </footer>
 
-  <div class='panelItem toTop' onclick='topFunction()' title='Go to top'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></div>
-  <script>
+  <div id="backtop" class='panelItem toTop' onclick='topFunction()' title='Go to top'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></div>
+  
+<script>
 const menux = document.querySelector('.ajaib-menu');
 const menuBody = document.body;
 function addActive(buttonNumber) {
@@ -445,7 +449,8 @@ window.onclick = function(event) {
 		} else {}
 	}
 };
-window.topFunction = function(name){document.body.scrollTop=0;document.documentElement.scrollTop=0}
+let mybutton=document.getElementById("backtop");window.onscroll=function(){scrollFunction()},window.scrollFunction=function(){document.body.scrollTop>20||document.documentElement.scrollTop>20?mybutton.style.display="block":mybutton.style.display="none"},window.topFunction=function(){document.body.scrollTop=0,document.documentElement.scrollTop=0}
 </script>
+
 </body>
 </html>
