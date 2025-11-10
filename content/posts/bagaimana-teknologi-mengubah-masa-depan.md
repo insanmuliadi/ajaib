@@ -10,7 +10,7 @@ image:
 tags: ["blog","tech"]
 ---
 
-{{< figure src="/images/up-tech.webp" alt="tech brain" height="408" width="680" caption="Judul Foto" >}}
+{{< figure src="/images/up-tech.webp" alt="tech brain" height="408" width="680" caption="Teknologi terutama AI akan merubah masa depan!" >}}
 
 Dunia yang kita tinggali sedang berubah dengan kecepatan yang belum pernah terjadi sebelumnya, dan di jantung perubahan ini adalah teknologi. Dari cara kita bekerja, belajar, hingga berinteraksi, teknologi tidak hanya sekadar alat bantu, melainkan kekuatan pendobrak yang membentuk ulang lanskap masa depan kita. Lantas, bagaimana tepatnya teknologi mengubah masa depan?
 
