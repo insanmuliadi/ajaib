@@ -7,7 +7,7 @@
     ],
     titleSelector: 'h1, .post-title',
     loadingClass: 'ajax-loading',
-    fadeSpeed: 100,
+    fadeSpeed: 10,
     updateWidgets: true
   };
   
