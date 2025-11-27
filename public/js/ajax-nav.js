@@ -79,7 +79,9 @@
           }
           
           // Scroll reset segera setelah konten dimuat
-          window.scrollTo(0, 0);
+          setTimeout(() => {
+            window.scrollTo(0, 0); // Fungsi scroll yang ingin didelay
+          }, 100);
           isLoading = false;
           
           window.dispatchEvent(new CustomEvent('ajaxPageLoaded', { 
