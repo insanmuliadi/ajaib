@@ -19,7 +19,7 @@
     if (isLoading || isAnchorClick) return; // Jangan load jika anchor click
     
     isLoading = true;
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
     
     const selectors = Array.isArray(config.contentSelectors) 
       ? config.contentSelectors 
