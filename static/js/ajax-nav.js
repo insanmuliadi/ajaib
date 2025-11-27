@@ -2,8 +2,13 @@
   'use strict';
   
   const config = {
+    // Ganti dengan selector yang lebih spesifik, EXCLUDE TOC
     contentSelectors: [
-      '.maincontent'
+      '.maincontent' // Semua child dari maincontent KECUALI .toc
+      // Atau jika tidak work, gunakan selector spesifik:
+      // '.post-header',
+      // '.post-content', 
+      // '.post-footer'
     ],
     titleSelector: 'h1, .post-title',
     fadeSpeed: 10,
@@ -12,6 +17,7 @@
   
   let isLoading = false;
   let currentUrl = window.location.href;
+  let isAnchorClick = false; // Flag untuk anchor link
   
   function fadeOut(element, callback) {
     element.style.transition = `opacity ${config.fadeSpeed}ms`;
@@ -31,7 +37,7 @@
   }
   
   function loadPage(url) {
-    if (isLoading) return;
+    if (isLoading || isAnchorClick) return; // Jangan load jika anchor click
     
     isLoading = true;
     window.scrollTo(0, 0);
@@ -159,49 +165,6 @@
     }
   }
   
-  // Cek apakah link adalah anchor link (hash/fragment)
-  function isAnchorLink(href, linkUrl) {
-    // Jika href dimulai dengan #, ini anchor link
-    if (href.startsWith('#')) {
-      return true;
-    }
-    
-    // Jika URL sama tapi ada hash, ini anchor link dalam halaman yang sama
-    if (linkUrl.pathname === window.location.pathname && linkUrl.hash) {
-      return true;
-    }
-    
-    return false;
-  }
-  
-  // Cek apakah link adalah bagian dari TOC
-  function isTocLink(link) {
-    let parent = link.parentElement;
-    while (parent && parent !== document.body) {
-      const classList = parent.classList;
-      const id = parent.id;
-      
-      // Cek class yang mengandung toc
-      if (classList && (
-        classList.contains('toc') || 
-        classList.contains('table-of-contents') ||
-        classList.contains('post-toc') ||
-        Array.from(classList).some(cls => cls.toLowerCase().includes('toc'))
-      )) {
-        return true;
-      }
-      
-      // Cek id yang mengandung toc
-      if (id && id.toLowerCase().includes('toc')) {
-        return true;
-      }
-      
-      parent = parent.parentElement;
-    }
-    
-    return false;
-  }
-  
   function interceptLinks() {
     document.addEventListener('click', function(e) {
       const link = e.target.closest('a');
@@ -210,31 +173,64 @@
       
       const href = link.getAttribute('href');
       
-      // Basic validation
-      if (!href || 
-          href === '#' || 
-          href.startsWith('javascript:') ||
+      console.log('Link clicked:', href); // Debug log
+      
+      // RULE #1: Jika href dimulai dengan #, STOP di sini (anchor link)
+      if (!href || href.startsWith('#')) {
+        console.log('✓ Anchor link detected, skipping AJAX:', href);
+        isAnchorClick = true; // Set flag
+        setTimeout(() => { isAnchorClick = false; }, 1000); // Reset setelah 1 detik
+        return; // PENTING: return di sini, tidak lanjut ke bawah
+      }
+      
+      // RULE #1b: Cek parent - jika ada .toc atau #TableOfContents, SKIP
+      let parent = link.parentElement;
+      while (parent && parent !== document.body) {
+        if (parent.classList.contains('toc') || 
+            parent.id === 'TableOfContents' ||
+            parent.classList.contains('no-ajax')) {
+          console.log('✓ TOC parent detected, skipping AJAX');
+          isAnchorClick = true; // Set flag
+          setTimeout(() => { isAnchorClick = false; }, 1000); // Reset
+          return; // PENTING: return di sini
+        }
+        parent = parent.parentElement;
+      }
+      
+      // RULE #2: Skip link dengan atribut khusus
+      if (href.startsWith('javascript:') ||
           link.hasAttribute('target') ||
           link.hasAttribute('download') ||
           link.classList.contains('no-ajax')) {
+        console.log('✓ Special attribute detected, skipping AJAX');
         return;
       }
       
-      const linkUrl = new URL(href, window.location.href);
+      // RULE #3: Parse URL
+      let linkUrl;
+      try {
+        linkUrl = new URL(href, window.location.href);
+      } catch (e) {
+        console.error('Invalid URL:', href);
+        return;
+      }
+      
       const currentDomain = window.location.hostname;
       
-      // Skip external links
+      // RULE #4: Skip external links
       if (linkUrl.hostname !== currentDomain) {
+        console.log('✓ External link, skipping AJAX');
         return;
       }
       
-      // PENTING: Skip anchor links dan TOC links
-      // Biarkan browser handle scroll secara native
-      if (isAnchorLink(href, linkUrl) || isTocLink(link)) {
-        return; // Jangan preventDefault, biarkan native scroll bekerja
+      // RULE #5: Skip jika URL sama tapi beda hash saja (anchor dalam halaman sama)
+      const currentPathname = window.location.pathname;
+      if (linkUrl.pathname === currentPathname && linkUrl.hash) {
+        console.log('✓ Same page anchor, skipping AJAX');
+        return;
       }
       
-      // Cek apakah ini content page yang perlu AJAX
+      // RULE #6: Cek apakah ini content page yang perlu AJAX
       const isContentPage = linkUrl.pathname.includes('/posts/') || 
                            linkUrl.pathname.includes('/blog/') ||
                            (linkUrl.pathname.length > 1 && 
@@ -242,11 +238,14 @@
                             !linkUrl.pathname.includes('/categories/'));
       
       if (isContentPage) {
+        console.log('✗ Content page detected, using AJAX:', linkUrl.href);
         e.preventDefault();
         
         if (linkUrl.href !== currentUrl) {
           loadPage(linkUrl.href);
         }
+      } else {
+        console.log('✓ Not a content page, using normal navigation');
       }
     });
   }
