@@ -6,39 +6,12 @@
       '.maincontent'
     ],
     titleSelector: 'h1, .post-title',
-    loadingClass: 'ajax-loading',
     fadeSpeed: 10,
     updateWidgets: true
   };
   
   let isLoading = false;
   let currentUrl = window.location.href;
-  
-  // Create loading overlay
-  function createLoadingOverlay() {
-      const overlay = document.createElement('div');
-      overlay.id = 'ajax-loading-overlay';
-      overlay.innerHTML = '<div class="ajax-spinner"></div>';
-      document.body.appendChild(overlay);
-      return overlay;
-  }
-  
-  let loadingOverlay = document.getElementById('ajax-loading-overlay') || createLoadingOverlay();
-  
-  function showLoading() {
-    document.body.classList.add(config.loadingClass);
-    loadingOverlay.classList.add('show');
-    isLoading = true;
-    
-    // Scroll ke atas SAAT loading dimulai, bukan nanti
-    window.scrollTo(0, 0);
-  }
-  
-  function hideLoading() {
-    document.body.classList.remove(config.loadingClass);
-    loadingOverlay.classList.remove('show');
-    isLoading = false;
-  }
   
   function fadeOut(element, callback) {
     element.style.transition = `opacity ${config.fadeSpeed}ms`;
@@ -60,7 +33,8 @@
   function loadPage(url) {
     if (isLoading) return;
     
-    showLoading(); // Ini sudah termasuk scroll ke atas
+    isLoading = true;
+    window.scrollTo(0, 0);
     
     const selectors = Array.isArray(config.contentSelectors) 
       ? config.contentSelectors 
@@ -76,7 +50,7 @@
     
     if (elementsToUpdate.length === 0) {
       console.error('No content elements found');
-      hideLoading();
+      isLoading = false;
       return;
     }
     
@@ -125,10 +99,9 @@
                   reinitializeWidgets();
                 }
                 
-                // PASTIKAN scroll ke atas setelah konten dimuat
                 setTimeout(() => {
                   window.scrollTo(0, 0);
-                  hideLoading();
+                  isLoading = false;
                 }, 100);
                 
                 window.dispatchEvent(new CustomEvent('ajaxPageLoaded', { 
@@ -141,7 +114,7 @@
             .catch(error => {
               console.error('Error loading page:', error);
               window.location.href = url;
-              hideLoading();
+              isLoading = false;
             });
         }
       });
@@ -186,6 +159,49 @@
     }
   }
   
+  // Cek apakah link adalah anchor link (hash/fragment)
+  function isAnchorLink(href, linkUrl) {
+    // Jika href dimulai dengan #, ini anchor link
+    if (href.startsWith('#')) {
+      return true;
+    }
+    
+    // Jika URL sama tapi ada hash, ini anchor link dalam halaman yang sama
+    if (linkUrl.pathname === window.location.pathname && linkUrl.hash) {
+      return true;
+    }
+    
+    return false;
+  }
+  
+  // Cek apakah link adalah bagian dari TOC
+  function isTocLink(link) {
+    let parent = link.parentElement;
+    while (parent && parent !== document.body) {
+      const classList = parent.classList;
+      const id = parent.id;
+      
+      // Cek class yang mengandung toc
+      if (classList && (
+        classList.contains('toc') || 
+        classList.contains('table-of-contents') ||
+        classList.contains('post-toc') ||
+        Array.from(classList).some(cls => cls.toLowerCase().includes('toc'))
+      )) {
+        return true;
+      }
+      
+      // Cek id yang mengandung toc
+      if (id && id.toLowerCase().includes('toc')) {
+        return true;
+      }
+      
+      parent = parent.parentElement;
+    }
+    
+    return false;
+  }
+  
   function interceptLinks() {
     document.addEventListener('click', function(e) {
       const link = e.target.closest('a');
@@ -194,9 +210,9 @@
       
       const href = link.getAttribute('href');
       
+      // Basic validation
       if (!href || 
           href === '#' || 
-          href.startsWith('#') ||
           href.startsWith('javascript:') ||
           link.hasAttribute('target') ||
           link.hasAttribute('download') ||
@@ -207,10 +223,18 @@
       const linkUrl = new URL(href, window.location.href);
       const currentDomain = window.location.hostname;
       
+      // Skip external links
       if (linkUrl.hostname !== currentDomain) {
         return;
       }
       
+      // PENTING: Skip anchor links dan TOC links
+      // Biarkan browser handle scroll secara native
+      if (isAnchorLink(href, linkUrl) || isTocLink(link)) {
+        return; // Jangan preventDefault, biarkan native scroll bekerja
+      }
+      
+      // Cek apakah ini content page yang perlu AJAX
       const isContentPage = linkUrl.pathname.includes('/posts/') || 
                            linkUrl.pathname.includes('/blog/') ||
                            (linkUrl.pathname.length > 1 && 
