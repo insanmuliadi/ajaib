@@ -8,30 +8,12 @@
       'head'
     ],
     titleSelector: 'h1, .post-title',
-    fadeSpeed: 0,
     updateWidgets: true
   };
   
   let isLoading = false;
   let currentUrl = window.location.href;
   let isAnchorClick = false; // Flag untuk anchor link
-  
-  function fadeOut(element, callback) {
-    element.style.transition = `opacity ${config.fadeSpeed}ms`;
-    element.style.opacity = '1';
-    setTimeout(() => {
-      if (callback) callback();
-    }, config.fadeSpeed);
-  }
-  
-  function fadeIn(element) {
-    element.style.opacity = '1';
-    element.style.display = 'block';
-    setTimeout(() => {
-      element.style.transition = `opacity ${config.fadeSpeed}ms`;
-      element.style.opacity = '1';
-    }, 50);
-  }
   
   function loadPage(url) {
     if (isLoading || isAnchorClick) return; // Jangan load jika anchor click
@@ -57,71 +39,61 @@
       return;
     }
     
-    let fadeOutCount = 0;
-    elementsToUpdate.forEach(({ element }) => {
-      fadeOut(element, () => {
-        fadeOutCount++;
-        
-        if (fadeOutCount === elementsToUpdate.length) {
-          fetch(url)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return response.text();
-            })
-            .then(html => {
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              
-              let successCount = 0;
-              
-              elementsToUpdate.forEach(({ selector, element }) => {
-                const newContent = doc.querySelector(selector);
-                
-                if (newContent) {
-                  element.innerHTML = newContent.innerHTML;
-                  fadeIn(element);
-                  successCount++;
-                } else {
-                  console.warn(`Selector not found: ${selector}`);
-                  element.style.opacity = '1';
-                }
-              });
-              
-              const newTitle = doc.querySelector(config.titleSelector);
-              if (newTitle) {
-                document.title = doc.title;
-              }
-              
-              if (successCount > 0) {
-                history.pushState({ url: url }, '', url);
-                currentUrl = url;
-                
-                if (config.updateWidgets) {
-                  reinitializeWidgets();
-                }
-                
-                setTimeout(() => {
-                  window.scrollTo(0, 0);
-                  isLoading = false;
-                }, 100);
-                
-                window.dispatchEvent(new CustomEvent('ajaxPageLoaded', { 
-                  detail: { url: url, updated: successCount } 
-                }));
-              } else {
-                throw new Error('No content updated');
-              }
-            })
-            .catch(error => {
-              console.error('Error loading page:', error);
-              window.location.href = url;
-              isLoading = false;
-            });
+    // LANGSUNG FETCH (Tanpa menunggu fadeOut)
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
+        return response.text();
+      })
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        let successCount = 0;
+        
+        elementsToUpdate.forEach(({ selector, element }) => {
+          const newContent = doc.querySelector(selector);
+          
+          if (newContent) {
+            // Langsung ganti konten tanpa animasi opacity
+            element.innerHTML = newContent.innerHTML;
+            successCount++;
+          } else {
+            console.warn(`Selector not found: ${selector}`);
+          }
+        });
+        
+        const newTitle = doc.querySelector(config.titleSelector);
+        if (newTitle) {
+          document.title = doc.title;
+        }
+        
+        if (successCount > 0) {
+          history.pushState({ url: url }, '', url);
+          currentUrl = url;
+          
+          if (config.updateWidgets) {
+            reinitializeWidgets();
+          }
+          
+          // Scroll reset segera setelah konten dimuat
+          window.scrollTo(0, 0);
+          isLoading = false;
+          
+          window.dispatchEvent(new CustomEvent('ajaxPageLoaded', { 
+            detail: { url: url, updated: successCount } 
+          }));
+        } else {
+          throw new Error('No content updated');
+        }
+      })
+      .catch(error => {
+        console.error('Error loading page:', error);
+        window.location.href = url; // Fallback jika error
+        isLoading = false;
       });
-    });
   }
   
   function reinitializeWidgets() {
@@ -170,14 +142,11 @@
       
       const href = link.getAttribute('href');
       
-      console.log('Link clicked:', href); // Debug log
-      
       // RULE #1: Jika href dimulai dengan #, STOP di sini (anchor link)
       if (!href || href.startsWith('#')) {
-        console.log('✓ Anchor link detected, skipping AJAX:', href);
         isAnchorClick = true; // Set flag
         setTimeout(() => { isAnchorClick = false; }, 1000); // Reset setelah 1 detik
-        return; // PENTING: return di sini, tidak lanjut ke bawah
+        return; 
       }
       
       // RULE #1b: Cek parent - jika ada .toc atau #TableOfContents, SKIP
@@ -186,10 +155,9 @@
         if (parent.classList.contains('toc') || 
             parent.id === 'TableOfContents' ||
             parent.classList.contains('no-ajax')) {
-          console.log('✓ TOC parent detected, skipping AJAX');
           isAnchorClick = true; // Set flag
           setTimeout(() => { isAnchorClick = false; }, 1000); // Reset
-          return; // PENTING: return di sini
+          return; 
         }
         parent = parent.parentElement;
       }
@@ -199,7 +167,6 @@
           link.hasAttribute('target') ||
           link.hasAttribute('download') ||
           link.classList.contains('no-ajax')) {
-        console.log('✓ Special attribute detected, skipping AJAX');
         return;
       }
       
@@ -216,36 +183,32 @@
       
       // RULE #4: Skip external links
       if (linkUrl.hostname !== currentDomain) {
-        console.log('✓ External link, skipping AJAX');
         return;
       }
       
       // RULE #5: Skip jika URL sama tapi beda hash saja (anchor dalam halaman sama)
       const currentPathname = window.location.pathname;
       if (linkUrl.pathname === currentPathname && linkUrl.hash) {
-        console.log('✓ Same page anchor, skipping AJAX');
         return;
       }
       
       // RULE #6: Cek apakah ini content page yang perlu AJAX
       const isContentPage = linkUrl.pathname.includes('/posts/') || 
-                           linkUrl.pathname.includes('/blog/') ||
-                           (linkUrl.pathname.length > 1 && 
-                            !linkUrl.pathname.includes('/tags/') &&
-                            !linkUrl.pathname.includes('/categories/'));
+                            linkUrl.pathname.includes('/blog/') ||
+                            (linkUrl.pathname.length > 1 && 
+                             !linkUrl.pathname.includes('/tags/') &&
+                             !linkUrl.pathname.includes('/categories/'));
       
       if (isContentPage) {
-        console.log('✗ Content page detected, using AJAX:', linkUrl.href);
         e.preventDefault();
         
         if (linkUrl.href !== currentUrl) {
           loadPage(linkUrl.href);
         }
-      } else {
-        console.log('✓ Not a content page, using normal navigation');
       }
     });
   }
+
   function initPrefetch() {
     // Hanya aktif di koneksi cepat dan tidak di mobile (opsional)
     if (navigator.connection && 
@@ -285,23 +248,18 @@
                 // Hanya prefetch internal links dan content pages
                 if (linkUrl.hostname === window.location.hostname) {
                     const isContentPage = linkUrl.pathname.includes('/posts/') || 
-                                       linkUrl.pathname.includes('/blog/') ||
-                                       (linkUrl.pathname.length > 1 && 
-                                        !linkUrl.pathname.includes('/tags/') &&
-                                        !linkUrl.pathname.includes('/categories/'));
+                                            linkUrl.pathname.includes('/blog/') ||
+                                            (linkUrl.pathname.length > 1 && 
+                                             !linkUrl.pathname.includes('/tags/') &&
+                                             !linkUrl.pathname.includes('/categories/'));
                     
                     if (isContentPage && linkUrl.href !== currentUrl) {
-                        console.log('Prefetching:', linkUrl.href);
-                        
                         // Prefetch dengan prioritas rendah
                         const linkElem = document.createElement('link');
                         linkElem.rel = 'prefetch';
                         linkElem.href = linkUrl.href;
                         linkElem.as = 'document';
                         document.head.appendChild(linkElem);
-                        
-                        // Atau menggunakan fetch dengan low priority
-                        // fetch(linkUrl.href, { priority: 'low' });
                     }
                 }
             } catch (e) {
@@ -317,7 +275,8 @@
             clearTimeout(prefetchTimeout);
         }
     });
-}
+  }
+
   function init() {
     history.replaceState({ url: currentUrl }, '', currentUrl);
     interceptLinks();
@@ -325,7 +284,7 @@
     if (!navigator.userAgent.match(/Android|iPhone|iPad|iPod/i)) {
       initPrefetch();
     }
-    console.log('AJAX Navigation initialized for Hugo');
+    console.log('AJAX Navigation initialized (No Fade)');
   }
   
   if (document.readyState === 'loading') {
