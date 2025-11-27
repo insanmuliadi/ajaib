@@ -321,8 +321,10 @@
   function init() {
     history.replaceState({ url: currentUrl }, '', currentUrl);
     interceptLinks();
-    initPrefetch()
     window.addEventListener('popstate', handlePopState);
+    if (!navigator.userAgent.match(/Android|iPhone|iPad|iPod/i)) {
+      initPrefetch();
+    }
     console.log('AJAX Navigation initialized for Hugo');
   }
   
