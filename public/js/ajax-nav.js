@@ -4,11 +4,8 @@
   const config = {
     // Ganti dengan selector yang lebih spesifik, EXCLUDE TOC
     contentSelectors: [
-      '.maincontent' // Semua child dari maincontent KECUALI .toc
-      // Atau jika tidak work, gunakan selector spesifik:
-      // '.post-header',
-      // '.post-content', 
-      // '.post-footer'
+      '.maincontent',
+      'head'
     ],
     titleSelector: 'h1, .post-title',
     fadeSpeed: 10,
@@ -249,10 +246,82 @@
       }
     });
   }
-  
+  function initPrefetch() {
+    // Hanya aktif di koneksi cepat dan tidak di mobile (opsional)
+    if (navigator.connection && 
+        (navigator.connection.saveData || 
+         (navigator.connection.effectiveType && navigator.connection.effectiveType.includes('2g')))) {
+        return; // Skip prefetch di kondisi koneksi lambat
+    }
+    
+    let prefetchTimeout;
+    
+    document.addEventListener('mouseover', function(e) {
+        const link = e.target.closest('a');
+        if (!link) return;
+        
+        const href = link.getAttribute('href');
+        
+        // Filter yang sama dengan interceptLinks
+        if (!href || 
+            href.startsWith('#') || 
+            href.startsWith('javascript:') ||
+            link.hasAttribute('target') ||
+            link.hasAttribute('download') ||
+            link.classList.contains('no-ajax')) {
+            return;
+        }
+        
+        // Clear timeout sebelumnya
+        if (prefetchTimeout) {
+            clearTimeout(prefetchTimeout);
+        }
+        
+        // Delay sedikit sebelum prefetch (100-200ms)
+        prefetchTimeout = setTimeout(() => {
+            try {
+                const linkUrl = new URL(href, window.location.href);
+                
+                // Hanya prefetch internal links dan content pages
+                if (linkUrl.hostname === window.location.hostname) {
+                    const isContentPage = linkUrl.pathname.includes('/posts/') || 
+                                       linkUrl.pathname.includes('/blog/') ||
+                                       (linkUrl.pathname.length > 1 && 
+                                        !linkUrl.pathname.includes('/tags/') &&
+                                        !linkUrl.pathname.includes('/categories/'));
+                    
+                    if (isContentPage && linkUrl.href !== currentUrl) {
+                        console.log('Prefetching:', linkUrl.href);
+                        
+                        // Prefetch dengan prioritas rendah
+                        const linkElem = document.createElement('link');
+                        linkElem.rel = 'prefetch';
+                        linkElem.href = linkUrl.href;
+                        linkElem.as = 'document';
+                        document.head.appendChild(linkElem);
+                        
+                        // Atau menggunakan fetch dengan low priority
+                        // fetch(linkUrl.href, { priority: 'low' });
+                    }
+                }
+            } catch (e) {
+                // Ignore invalid URLs
+            }
+        }, 100); // Delay 100ms
+    });
+    
+    // Cancel prefetch jika mouse keluar sebelum timeout
+    document.addEventListener('mouseout', function(e) {
+        const link = e.target.closest('a');
+        if (link && prefetchTimeout) {
+            clearTimeout(prefetchTimeout);
+        }
+    });
+}
   function init() {
     history.replaceState({ url: currentUrl }, '', currentUrl);
     interceptLinks();
+    initPrefetch()
     window.addEventListener('popstate', handlePopState);
     console.log('AJAX Navigation initialized for Hugo');
   }
