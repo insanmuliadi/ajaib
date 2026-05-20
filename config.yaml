@@ -1,6 +1,6 @@
-baseURL: 'https://ajaib.my.id/'
+baseURL: 'https://mii.my.id/'
 languageCode: 'en-us'
-title: 'Ajaib'
+title: 'Mii'
 description: "Sumber informasi harian tentang tips, peluang bisnis, dan perkembangan kripto di Indonesia."
 keywords: [tips bisnis, crypto]
 theme: 'ajaib-theme'
@@ -11,7 +11,7 @@ markup:
       unsafe: true
 
 params:
-  defaultAuthor: "Ajaib Team"
+  defaultAuthor: "Mii Team"
   contact:
     email: info@example.org
     phone: +1 202-555-1212
