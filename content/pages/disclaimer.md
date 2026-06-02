@@ -1,6 +1,6 @@
 ---
 title: "Disclaimer"
-date: 2026-6-03
+date: 2026-06-03
 summary: "Disclaimer"
 slug: disclaimer
 toc: false
