@@ -6,12 +6,19 @@
     <description>Recent content on Mii</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2026 00:24:22 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 00:27:06 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Disclaimer</title>
+      <link>http://localhost:1313/disclaimer/</link>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/disclaimer/</guid>
+      <description>Disclaimer</description>
+    </item>
     <item>
       <title>Hubungi Kami</title>
       <link>http://localhost:1313/contact/</link>
-      <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/contact/</guid>
       <description>Hubungi kami melalui form kontak berikut</description>
     </item>
@@ -27,7 +34,7 @@
       <link>http://localhost:1313/kenapa-domain-my.id-susah-terindex/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/kenapa-domain-my.id-susah-terindex/</guid>
-      <description>&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/images/my-id-problem-min.webp&#34;&#xA;    alt=&#34;domain my.id stidak bisa terindeks&#34; width=&#34;1280&#34; height=&#34;768&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Bagi para blogger yang memiliki kustom domain Indonesia yaitu *.my.id pasti merasakan masalah yang sama yaitu web yang menggunakan domain ini sangat sulit untuk diindeks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;apa-itu-kustom-domain-myid&#34;&gt;Apa itu Kustom Domain my.id?&lt;/h2&gt;&#xA;&lt;p&gt;Sesuai dengan ujung ekstensinya kustom domain ini sudah bisa ditebak bahwa ini adalah domain khusus yang diperuntukkan untuk wilayah Indonesia.&lt;/p&gt;&#xA;&lt;p&gt;Awal kemunculannya membawa rasa hype, blogger Indonesia kini memiliki alternatif lain selain web.id, apalagi .id yang mahalnya ketrlaluan.&lt;/p&gt;</description>
+      <description>&lt;figure&#xD;&#xA;&gt;&#xD;&#xA;&#xD;&#xA;  &lt;img&#xD;&#xA;    src=&#34;http://localhost:1313/images/my-id-problem-min.webp&#34;&#xD;&#xA;    alt=&#34;domain my.id stidak bisa terindeks&#34;&#xD;&#xA;    loading=&#34;lazy&#34;&#xD;&#xA;    decoding=&#34;async&#34; fetchpriority=&#34;high&#34; width=&#34;1280&#34; height=&#34;768&#34;&#xD;&#xA;  /&gt;&#xD;&#xA;&#xD;&#xA;&lt;/figure&gt;&#xA;&lt;p&gt;Bagi para blogger yang memiliki kustom domain Indonesia yaitu *.my.id pasti merasakan masalah yang sama yaitu web yang menggunakan domain ini sangat sulit untuk diindeks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;apa-itu-kustom-domain-myid&#34;&gt;Apa itu Kustom Domain my.id?&lt;/h2&gt;&#xA;&lt;p&gt;Sesuai dengan ujung ekstensinya kustom domain ini sudah bisa ditebak bahwa ini adalah domain khusus yang diperuntukkan untuk wilayah Indonesia.&lt;/p&gt;&#xA;&lt;p&gt;Awal kemunculannya membawa rasa hype, blogger Indonesia kini memiliki alternatif lain selain web.id, apalagi .id yang mahalnya ketrlaluan.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Bagaimana Teknologi Mengubah Masa Depan</title>
@@ -77,13 +84,6 @@
       <pubDate>Fri, 18 Jul 2025 20:00:00 +0800</pubDate>
       <guid>http://localhost:1313/welcome-to-ajaib/</guid>
       <description>&lt;img alt=&#34;Liu Mei&#34; height=&#34;405&#34; src=&#34;http://localhost:1313/images/liu-mei.webp&#34; width=&#34;720&#34;&gt;&#xA;&lt;p&gt;Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.&lt;/p&gt;&#xA;&lt;p&gt;Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id maupun semua turunan bisnisnya.&lt;/p&gt;&#xA;&lt;p&gt;Ajaib Team&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Disclaimer</title>
-      <link>http://localhost:1313/disclaimer/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/disclaimer/</guid>
-      <description>Disclaimer</description>
     </item>
   </channel>
 </rss>

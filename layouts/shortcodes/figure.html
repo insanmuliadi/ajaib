@@ -1,0 +1,50 @@
+{{- $src          := .Get "src" -}}
+{{- $alt          := .Get "alt" | default "" -}}
+{{- $caption      := .Get "caption" | default "" -}}
+{{- $title        := .Get "title" | default "" -}}
+{{- $class        := .Get "class" | default "" -}}
+{{- $link         := .Get "link" | default "" -}}
+{{- $rel          := .Get "rel" | default "noopener" -}}
+{{- $target       := .Get "target" | default "_blank" -}}
+{{- $width        := .Get "width" | default "" -}}
+{{- $height       := .Get "height" | default "" -}}
+{{- $loading      := .Get "loading" | default "lazy" -}}
+{{- $fetchpriority := .Get "fetchpriority" | default "" -}}
+
+{{- $figID := printf "fig-%s" (sha256 $src | truncate 8 "") -}}
+
+<figure
+  {{- with $class }} class="{{ . }}"{{ end }}
+  {{- if $caption }} aria-labelledby="{{ $figID }}-caption"{{ end }}
+>
+  {{- if $link }}
+  
+    href="{{ $link }}"
+    {{- with $target }} target="{{ . }}"{{ end }}
+    {{- with $rel }} rel="{{ . }}"{{ end }}
+    aria-label="{{ with $alt }}{{ . }}{{ else }}Lihat gambar{{ end }}"
+  >
+  {{- end }}
+
+  <img
+    src="{{ $src }}"
+    alt="{{ $alt }}"
+    loading="{{ $loading }}"
+    decoding="async"
+    {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}
+    {{- with $width }} width="{{ . }}"{{ end }}
+    {{- with $height }} height="{{ . }}"{{ end }}
+    {{- if not $alt }} role="presentation"{{ end }}
+  />
+
+  {{- if $link }}</a>{{ end }}
+
+  {{- if or $caption $title }}
+  <figcaption id="{{ $figID }}-caption">
+    {{- if $title }}<strong>{{ $title }}</strong>{{ end }}
+    {{- if and $title $caption }} — {{ end }}
+    {{- with $caption }}{{ . | markdownify }}{{ end }}
+  </figcaption>
+  {{- end }}
+
+</figure>

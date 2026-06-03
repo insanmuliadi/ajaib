@@ -53,11 +53,11 @@ menus:
   - name: About Us
     pageRef: '/about-us/'
     weight: 10
-  - name: Terms
-    pageRef: '/terms/'
+  - name: Terms & Conditions
+    pageRef: '/terms-conditions/'
     weight: 20
-  - name: Privacy
-    pageRef: '/privacy/'
+  - name: Privacy Policy
+    pageRef: '/privacy-policy/'
     weight: 30
   - name: Disclaimer
     pageRef: '/disclaimer/'
