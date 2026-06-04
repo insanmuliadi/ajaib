@@ -28,9 +28,9 @@ Harga yang murah ini membuat banyak orang menjadikannya sebagai domain untuk web
 Saking murahnya, domain ini banyak digunakan pada web spamming. Akibatnya reputasi domain ini menjadi sangat buruk baik dimata blogger maupun di mata mesin pencari terutama Google.
 
 ## Gagal Fetch Sitemap dan Susah Terindeks
-Karena dianggap domain spamming maka domain ini mendapat pembatasan dari Google. Pada GSC, sitemap dari domain ini akan ditolak sehingga gagal difetch.
+Karena dianggap domain spamming maka domain ini mendapat pembatasan dari Google. Pada GSC, sitemap dari domain ini akan ditolak sehingga gagal di-fetch.
 
-Tidak hanya sitemapnya gagal difetch, url dari domain ini sangat sulit untuk diindex. Sekalipun diindex maka akan sangat mudah untuk deindex karena Google tidak menerima sinyal update dari sitemap.
+Tidak hanya sitemapnya gagal di-fetch, [**efek dari indikasi spam**](http://localhost:1313/efek-skor-spam-terhadap-blog/) lainnya yaiutu url dari domain ini sangat sulit untuk diindex. Sekalipun diindex maka akan sangat mudah untuk deindex karena Google tidak menerima sinyal update dari sitemap.
 
 ## Domain Tidak Berguna, Dijual Gratis - Rp3.000
 Dengan reputasi yang sangat buruk maka domain ini hampir tidak berguna. Bukannya tidak berguna sama sekali, domain ini masih bisa dijadikan landing page.
