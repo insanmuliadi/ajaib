@@ -71,12 +71,5 @@
       <guid>http://localhost:1313/welcome-to-ajaib/</guid>
       <description>&lt;img alt=&#34;Liu Mei&#34; height=&#34;405&#34; src=&#34;http://localhost:1313/images/liu-mei.webp&#34; width=&#34;720&#34;&gt;&#xA;&lt;p&gt;Selamat datang di Ajaib, sebuah web yang menyajikan beragam informasi.&lt;/p&gt;&#xA;&lt;p&gt;Perlu diketahui bahwa situs web ini tidak terafiliasi dengan ajaib.co.id maupun semua turunan bisnisnya.&lt;/p&gt;&#xA;&lt;p&gt;Ajaib Team&lt;/p&gt;</description>
     </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
