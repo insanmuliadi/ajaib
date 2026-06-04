@@ -1,0 +1,61 @@
+{{/* Ambil data gambar dari front matter atau cari otomatis di konten */}}
+{{ $src := "" }}
+{{ $alt := .Params.image.alt | default "Gambar artikel" }}
+
+{{/* 1️⃣ Jika ada di front matter */}}
+{{ if .Params.image.src }}
+  {{ $src = .Params.image.src }}
+{{ else }}
+  {{/* 2️⃣ Cari tag <img> pertama di konten */}}
+  {{ $htmlImg := findRE `<img.*?src=["']([^"']+)["']` .Content 1 }}
+  {{ if gt (len $htmlImg) 0 }}
+    {{ $src = replaceRE `.*src=["']([^"']+)["'].*` "$1" (index $htmlImg 0) }}
+  {{ else }}
+    {{/* 3️⃣ Cari Markdown image pertama */}}
+    {{ $mdImg := findRE `!\[([^\]]*)\]\(([^)]+)\)` .RawContent 1 }}
+    {{ if gt (len $mdImg) 0 }}
+      {{ $src = replaceRE `!\[([^\]]*)\]\(([^)]+)\)` "$2" (index $mdImg 0) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ✅ Proses thumbnail dengan pengecekan yang lebih robust */}}
+{{ $img := false }}
+
+{{/* Coba ambil dari Page Resources dulu */}}
+{{ if $src }}
+  {{ $img = .Resources.GetMatch $src }}
+{{ end }}
+
+{{/* Jika bukan Page Resource, coba dari assets/ */}}
+{{ if and (not $img) $src }}
+  {{ $cleanSrc := strings.TrimPrefix "/" $src }}
+  {{ with resources.Get $cleanSrc }}
+    {{ $img = . }}
+  {{ end }}
+{{ end }}
+
+{{/* Render gambar */}}
+{{ if $img }}
+  {{ $thumb := $img.Fill "120x120" }}
+  <img class="thumbnail-img" loading="lazy" 
+       src="{{ $thumb.RelPermalink }}" 
+       srcset="{{ $thumb.RelPermalink }} 1x, {{ ($img.Fill "240x240").RelPermalink }} 2x" 
+       alt="{{ $alt }}" 
+       width="120" 
+       height="120">
+{{ else if $src }}
+  {{/* Fallback untuk gambar dari /static/ atau URL eksternal */}}
+  <img class="thumbnail-img" loading="lazy" 
+       src="{{ $src }}" 
+       alt="{{ $alt }}" 
+       width="120" 
+       height="120">
+{{ else }}
+  {{/* Fallback default jika tidak ada gambar sama sekali */}}
+  <img class="thumbnail-img" loading="lazy" 
+       src="/images/no-image.svg" 
+       alt="{{ $alt }}" 
+       width="120" 
+       height="120">
+{{ end }}
