@@ -33,6 +33,7 @@ permalinks:
     posts: "/:slug/"
     pages: "/:slug/"
     news: "/news/:slug/"
+    wiki: "/wiki/:slug/"hugo 
 
 menus:
   main:
