@@ -15,7 +15,7 @@
     <lastmod>2026-06-04T13:53:09+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-04T13:58:00+08:00</lastmod>
+    <lastmod>2026-06-04T15:45:01+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2026-06-04T13:58:00+08:00</lastmod>
@@ -24,7 +24,7 @@
     <lastmod>2026-06-04T13:53:09+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/disclaimer/</loc>
-    <lastmod>2026-06-03T00:27:06+08:00</lastmod>
+    <lastmod>2026-06-04T15:45:01+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/contact/</loc>
     <lastmod>2026-06-03T23:03:06+08:00</lastmod>
@@ -33,7 +33,7 @@
     <lastmod>2026-06-03T23:03:06+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/pages/</loc>
-    <lastmod>2026-06-04T13:34:55+08:00</lastmod>
+    <lastmod>2026-06-04T15:45:01+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/efek-skor-spam-terhadap-blog/</loc>
     <lastmod>2025-12-13T19:47:32+08:00</lastmod>
@@ -46,6 +46,9 @@
   </url><url>
     <loc>http://localhost:1313/authors/bang-ja/</loc>
     <lastmod>2026-06-03T23:03:06+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/terms-conditions/</loc>
+    <lastmod>2026-06-04T15:45:01+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/tech/</loc>
     <lastmod>2026-06-03T23:03:06+08:00</lastmod>
@@ -85,6 +88,9 @@
   </url><url>
     <loc>http://localhost:1313/tags/tutor/</loc>
     <lastmod>2025-10-25T15:03:42+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/privacy-policy/</loc>
+    <lastmod>2026-06-04T15:45:01+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/search/</loc>
     <lastmod>2025-10-24T13:16:22+08:00</lastmod>

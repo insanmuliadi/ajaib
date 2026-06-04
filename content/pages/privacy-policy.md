@@ -1,6 +1,6 @@
 ---
 title: Kebijakan Privaci
-slug: /privacy-policy
+slug: privacy-policy
 toc: false
 ---
 
