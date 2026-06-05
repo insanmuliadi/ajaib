@@ -13,7 +13,7 @@ toc: true
 draft: false
 ---
 
-{{< figure alt="domain my.id stidak bisa terindeks" src="/images/my-id-domain-2.webp" height="768" loading="eager" width="1280" fetchpriority="high" >}}
+{{< figure alt="domain my.id stidak bisa terindeks" src="/images/my-id-domain-2.webp" decoding="sync" height="768" loading="eager" width="1280" fetchpriority="high" >}}
 
 Dalam era digital saat ini, memiliki domain yang tepat sangat penting untuk kehadiran online Anda.
 
