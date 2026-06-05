@@ -6,14 +6,14 @@ authors:
 tags: 
  - blog
 image:
-  src: /images/domain-my-id.webp
+  src: /images/my-id-domain-2.webp
   alt: 'Ilustrasi tekbologi'
 slug: apakah-domain-my-dot-id-masih-layak-dibeli
 toc: true
 draft: false
 ---
 
-{{< figure alt="domain my.id stidak bisa terindeks" src="/images/domain-my-id.webp" height="768" width="1280" fetchpriority="high" >}}
+{{< figure alt="domain my.id stidak bisa terindeks" src="/images/my-id-domain-2.webp" height="768" loading="eager" width="1280" fetchpriority="high" >}}
 
 Dalam era digital saat ini, memiliki domain yang tepat sangat penting untuk kehadiran online Anda.
 

@@ -1,16 +1,60 @@
+{{/* --- Parameter --- */}}
 {{- $src          := .Get "src" -}}
-{{- $alt          := .Get "alt" | default "" -}}
-{{- $caption      := .Get "caption" | default "" -}}
-{{- $title        := .Get "title" | default "" -}}
-{{- $class        := .Get "class" | default "" -}}
-{{- $link         := .Get "link" | default "" -}}
-{{- $rel          := .Get "rel" | default "noopener" -}}
-{{- $target       := .Get "target" | default "_blank" -}}
-{{- $width        := .Get "width" | default "" -}}
-{{- $height       := .Get "height" | default "" -}}
-{{- $loading      := .Get "loading" | default "lazy" -}}
+{{- $alt          := .Get "alt"          | default "" -}}
+{{- $caption      := .Get "caption"      | default "" -}}
+{{- $title        := .Get "title"        | default "" -}}
+{{- $class        := .Get "class"        | default "" -}}
+{{- $link         := .Get "link"         | default "" -}}
+{{- $rel          := .Get "rel"          | default "noopener" -}}
+{{- $target       := .Get "target"       | default "_blank" -}}
+{{- $width        := .Get "width"        | default "" -}}
+{{- $height       := .Get "height"       | default "" -}}
+{{- $loading      := .Get "loading"      | default "lazy" -}}
 {{- $fetchpriority := .Get "fetchpriority" | default "" -}}
+{{- $size         := .Get "size"         | default "" -}}
 
+{{/* --- Resolve gambar --- */}}
+{{- $img    := "" -}}
+{{- $imgSrc := $src -}}
+{{- $srcset := "" -}}
+
+{{- if $src -}}
+  {{/* 1. Coba page bundle */}}
+  {{- with .Page.Resources.GetMatch $src -}}
+    {{- $img = . -}}
+  {{- end -}}
+
+  {{/* 2. Fallback ke assets/ — strip leading slash */}}
+  {{- if not $img -}}
+    {{- with resources.Get (strings.TrimPrefix "/" $src) -}}
+      {{- $img = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* --- Proses dengan Pipes jika resource ditemukan --- */}}
+{{- if $img -}}
+  {{- if $size -}}
+    {{/* Ukuran custom dari parameter, contoh: size="800x webp" */}}
+    {{- $processed := $img.Resize $size -}}
+    {{- $imgSrc = $processed.RelPermalink -}}
+    {{- $width  = $width  | default (string $processed.Width) -}}
+    {{- $height = $height | default (string $processed.Height) -}}
+  {{- else -}}
+    {{/* Tanpa resize — pakai asli, tapi tetap lewat Pipes */}}
+    {{- $imgSrc = $img.RelPermalink -}}
+    {{- $width  = $width  | default (string $img.Width) -}}
+    {{- $height = $height | default (string $img.Height) -}}
+  {{- end -}}
+
+  {{/* srcset otomatis 1x dan 2x jika ada ukuran */}}
+  {{- if $size -}}
+    {{- $img2x := $img.Resize (printf "%s" $size | replaceRE `(\d+)x` (printf "%dx" (mul (int (replaceRE `x.*` "" $size)) 2))) -}}
+    {{- $srcset = printf "%s 1x, %s 2x" $imgSrc $img2x.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* --- Render --- */}}
 {{- $figID := printf "fig-%s" (sha256 $src | truncate 8 "") -}}
 
 <figure
@@ -27,7 +71,8 @@
   {{- end }}
 
   <img
-    src="{{ $src }}"
+    src="{{ $imgSrc }}"
+    {{- with $srcset }} srcset="{{ . }}"{{ end }}
     alt="{{ $alt }}"
     loading="{{ $loading }}"
     decoding="async"
@@ -46,5 +91,4 @@
     {{- with $caption }}{{ . | markdownify }}{{ end }}
   </figcaption>
   {{- end }}
-
 </figure>
